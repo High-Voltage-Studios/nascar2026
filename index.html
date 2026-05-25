@@ -505,6 +505,260 @@ body.light-mode{--bg:#f4f4f4;--p1:#ffffff;--p2:#ebebeb;--p3:#dcdcdc;--bd:rgba(0,
 .setup-step-title{font-size:10px;font-weight:700;margin-bottom:2px}
 .setup-step-desc{font-size:9px;color:var(--mu);line-height:1.5}
 .setup-code{background:var(--bg);border:1px solid var(--bd2);border-radius:4px;padding:5px 8px;font-family:monospace;font-size:9px;color:#22c55e;word-break:break-all;margin-top:3px;user-select:all}
+/* ── SCRIPT PROMPTS ── */
+.script-overlay{position:fixed;bottom:0;left:0;right:0;z-index:9600;pointer-events:none;padding:0 16px 12px}
+.script-card{background:rgba(10,10,10,.97);border:1.5px solid var(--c,#f0b429);border-radius:10px;padding:14px 16px;margin-top:8px;pointer-events:all;animation:slideUpFade .25s ease}
+@keyframes slideUpFade{from{transform:translateY(16px);opacity:0}to{transform:translateY(0);opacity:1}}
+.script-type{font-size:7px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--c,#f0b429);margin-bottom:6px;display:flex;align-items:center;justify-content:space-between}
+.script-text{font-size:12px;color:#fff;line-height:1.6;font-style:italic;margin-bottom:8px}
+.script-close{font-size:9px;color:#444;cursor:pointer;padding:1px 6px;border-radius:3px;border:1px solid #222;background:transparent;font-family:Inter,sans-serif}
+.script-close:hover{color:#888;border-color:#333}
+/* ── SPECTATOR CHAT ── */
+.spec-chat-wrap{display:flex;flex-direction:column;height:100%;overflow:hidden}
+.spec-chat-feed{flex:1;overflow-y:auto;padding:8px 0;display:flex;flex-direction:column;gap:4px}
+.chat-msg{padding:5px 8px;border-radius:5px;background:#111;font-size:10px;line-height:1.4}
+.chat-msg-name{font-weight:700;color:#06b6d4;font-size:9px}
+.chat-msg-text{color:#bbb}
+.chat-msg.deleted{opacity:.3;font-style:italic;color:#555}
+.chat-input-row{display:flex;gap:5px;padding:8px 0 0;border-top:1px solid #1a1a1a;flex-shrink:0}
+/* ── FAN VOTES ── */
+.fan-vote-bar{height:8px;background:#111;border-radius:4px;overflow:hidden;margin-top:4px}
+.fan-vote-fill{height:100%;border-radius:4px;transition:width .5s ease;background:#6366f1}
+.fan-vote-row{margin-bottom:8px}
+.fan-vote-name{display:flex;justify-content:space-between;font-size:9px;color:#bbb;margin-bottom:3px}
+/* ── PREDICTION GAME ── */
+.pred-card{background:var(--p2);border:1.5px solid rgba(99,102,241,.2);border-radius:8px;padding:12px 14px;margin-bottom:8px}
+.pred-hdr{font-size:10px;font-weight:800;margin-bottom:8px}
+.pred-opt{display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:6px;background:var(--p3);margin-bottom:3px;cursor:pointer;font-size:10px;border:1.5px solid transparent;transition:all .12s;-webkit-tap-highlight-color:transparent}
+.pred-opt:hover,.pred-opt:active{background:var(--p1)}
+.pred-opt.selected{border-color:#6366f1;background:rgba(99,102,241,.08);color:#6366f1;font-weight:700}
+.pred-opt.correct{border-color:#22c55e;background:rgba(34,197,94,.08);color:#22c55e}
+.pred-opt.wrong{border-color:#e24b4a;background:rgba(226,74,74,.04);opacity:.5}
+/* ── TV DISPLAY MODE ── */
+.tv-screen{position:fixed;inset:0;background:#000;z-index:9993;display:none;flex-direction:column}
+.tv-screen.on{display:flex}
+.tv-flag-hero{flex:0 0 40%;display:flex;align-items:center;justify-content:center;gap:24px;padding:24px}
+.tv-flag-icon{font-size:80px;line-height:1}
+.tv-flag-name{font-size:56px;font-weight:900;letter-spacing:-1px;line-height:1}
+.tv-lap{font-size:32px;font-weight:800;color:#444;margin-top:6px}
+.tv-bottom{flex:1;display:grid;grid-template-columns:1fr 1fr;border-top:2px solid #111}
+.tv-standings{padding:20px 24px;overflow:hidden}
+.tv-incidents{padding:20px 24px;border-left:1px solid #111;overflow:hidden}
+.tv-section-lbl{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.14em;color:#333;margin-bottom:14px}
+.tv-stand-row{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #0d0d0d}
+.tv-stand-pos{font-size:28px;font-weight:900;min-width:40px;color:#222}
+.tv-stand-pos.p1{color:#f0b429}.tv-stand-pos.p2{color:#94a3b8}.tv-stand-pos.p3{color:#b45309}
+.tv-stand-name{font-size:18px;font-weight:700;color:#ccc;flex:1}
+.tv-stand-pts{font-size:20px;font-weight:900;color:#f0b429}
+.tv-inc-row{padding:8px 0;border-bottom:1px solid #0d0d0d;font-size:13px;color:#555}
+/* ── LOWER THIRDS ── */
+.lower-third{position:fixed;bottom:0;left:0;right:0;z-index:9601;pointer-events:none}
+.lt-bar{display:flex;align-items:center;gap:12px;padding:12px 20px;background:rgba(0,0,0,.95);border-top:2px solid var(--lt-c,#f0b429);transform:translateY(100%);transition:transform .3s cubic-bezier(.22,.61,.36,1);pointer-events:none}
+.lt-bar.on{transform:translateY(0)}
+.lt-icon{font-size:24px;flex-shrink:0}
+.lt-label{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--lt-c,#f0b429);flex-shrink:0}
+.lt-text{font-size:14px;font-weight:700;color:#fff;flex:1}
+.lt-lap{font-size:11px;color:#444;flex-shrink:0}
+/* ── SCOREBOARD WALL ── */
+.sb-screen{position:fixed;inset:0;background:#050505;z-index:9992;display:none;flex-direction:column;overflow:hidden}
+.sb-screen.on{display:flex}
+.sb-header{display:flex;align-items:center;gap:16px;padding:20px 28px;border-bottom:1px solid #111;flex-shrink:0}
+.sb-title{font-size:20px;font-weight:900;color:#fff}
+.sb-flag-chip{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px;border:1.5px solid currentColor}
+.sb-body{flex:1;overflow-y:auto;padding:20px 28px}
+.sb-row{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid #0d0d0d}
+.sb-pos{font-size:36px;font-weight:900;min-width:54px;color:#1a1a1a}
+.sb-pos.p1{color:#f0b429}.sb-pos.p2{color:#94a3b8}.sb-pos.p3{color:#b45309}
+.sb-car{font-size:14px;font-weight:800;background:#111;padding:4px 12px;border-radius:4px;flex-shrink:0}
+.sb-name{font-size:22px;font-weight:700;color:#ccc;flex:1}
+.sb-pts{font-size:28px;font-weight:900;color:#f0b429}
+.sb-pts-lbl{font-size:10px;color:#333}
+/* ── FLAG CONFIRM ── */
+.flag-confirm-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(0,0,0,.95);border-top:2px solid var(--fc,#f0b429);padding:14px 20px;flex-direction:column;gap:10px;align-items:center}
+.flag-confirm-bar.on{display:flex}
+.flag-confirm-txt{font-size:14px;font-weight:800;color:#fff}
+.flag-confirm-btns{display:flex;gap:10px}
+.flag-confirm-yes{padding:10px 28px;border:none;border-radius:7px;background:var(--fc,#f0b429);color:#000;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif}
+.flag-confirm-no{padding:10px 28px;border:1px solid #333;border-radius:7px;background:transparent;color:#666;font-size:12px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif}
+.acct-screen{position:fixed;inset:0;background:#080808;z-index:10001;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px}
+.acct-screen.hidden{display:none}
+.acct-box{background:var(--p1);border:1.5px solid var(--bd2);border-radius:14px;padding:28px 24px;width:100%;max-width:380px}
+.acct-logo{font-size:32px;text-align:center;margin-bottom:10px}
+.acct-title{font-size:18px;font-weight:900;text-align:center;margin-bottom:4px}
+.acct-sub{font-size:9px;color:var(--mu);text-align:center;margin-bottom:20px}
+.acct-tabs{display:flex;border-bottom:1px solid var(--bd);margin-bottom:16px}
+.acct-tab{flex:1;padding:8px;text-align:center;font-size:10px;font-weight:700;color:var(--dm);cursor:pointer;border-bottom:2px solid transparent;transition:all .15s}
+.acct-tab.on{color:#f0b429;border-bottom-color:#f0b429}
+.acct-panel{display:none}.acct-panel.on{display:block}
+.acct-input{width:100%;background:var(--p2);border:1.5px solid var(--bd2);border-radius:7px;color:var(--tx);font-family:Inter,sans-serif;font-size:12px;padding:9px 12px;outline:none;margin-bottom:10px;box-sizing:border-box}
+.acct-input:focus{border-color:rgba(240,180,41,.4)}
+.acct-btn{width:100%;padding:11px;border:none;border-radius:7px;font-size:12px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif;margin-bottom:8px;transition:all .15s}
+.acct-btn.primary{background:#f0b429;color:#000}
+.acct-btn.secondary{background:transparent;border:1px solid var(--bd2);color:var(--mu);font-weight:600}
+.acct-status{font-size:9px;text-align:center;padding:6px;border-radius:5px;margin-bottom:10px}
+.acct-status.pending{background:rgba(240,180,41,.08);color:#f0b429;border:1px solid rgba(240,180,41,.2)}
+.acct-status.approved{background:rgba(34,197,94,.08);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+.acct-status.denied{background:rgba(226,74,74,.08);color:#e24b4a;border:1px solid rgba(226,74,74,.2)}
+.acct-err{font-size:9px;color:#e24b4a;margin-bottom:8px;text-align:center;min-height:16px}
+/* Pending accounts in net admin */
+.pending-acct-row{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--p2);border-radius:5px;margin-bottom:4px}
+.pending-acct-name{flex:1;font-size:10px;font-weight:700}
+.pending-acct-time{font-size:7px;color:var(--dm)}
+.acct-approve-btn{font-size:8px;padding:3px 9px;border-radius:3px;border:1px solid rgba(34,197,94,.3);background:transparent;color:#22c55e;cursor:pointer;font-family:Inter,sans-serif}
+.acct-deny-btn{font-size:8px;padding:3px 9px;border-radius:3px;border:1px solid rgba(226,74,74,.3);background:transparent;color:#e24b4a;cursor:pointer;font-family:Inter,sans-serif}
+/* Weather visual enhancements */
+.wx-banner{display:none;align-items:center;gap:8px;padding:5px 12px;font-size:10px;font-weight:700;border-bottom:1px solid rgba(0,0,0,.2);flex-shrink:0}
+.wx-banner.on{display:flex}
+.wx-icon{font-size:16px}
+/* Track map incident pins */
+.map-pin-prompt{background:var(--p2);border:1px solid rgba(240,180,41,.2);border-radius:6px;padding:8px 10px;margin-top:6px;font-size:9px;color:var(--mu);text-align:center;cursor:pointer;display:none}
+.map-pin-prompt.on{display:block}
+.map-pin-active{border-color:#f0b429;color:#f0b429;background:rgba(240,180,41,.06)}
+/* Driver profiles */
+.profile-card{background:var(--p1);border:1px solid var(--bd2);border-radius:10px;padding:14px;margin-bottom:8px}
+.profile-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+.profile-stat{background:var(--p2);border-radius:6px;padding:8px 4px;text-align:center}
+.profile-stat-n{font-size:18px;font-weight:900}
+.profile-stat-l{font-size:7px;color:var(--mu);margin-top:2px}
+/* Race report */
+.report-section{margin-bottom:16px}
+.report-section-hdr{font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:#f97316;margin-bottom:8px;padding-bottom:4px;border-bottom:1px solid var(--bd)}
+/* ── LOBBY SCREEN ── */
+.lobby-screen{position:fixed;inset:0;background:#080808;z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:28px 24px;overflow-y:auto}
+.lobby-screen.hidden{display:none}
+.lobby-header{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:24px;width:100%;max-width:700px}
+.lobby-title{font-size:22px;font-weight:900;letter-spacing:-.5px}
+.lobby-sub{font-size:10px;color:var(--mu)}
+.lobby-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:700px;margin-bottom:20px}
+.lobby-btn-primary{padding:12px 16px;background:#f0b429;border:none;border-radius:8px;font-size:12px;font-weight:800;color:#000;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s}
+.lobby-btn-primary:hover,.lobby-btn-primary:active{background:#e0a419;transform:translateY(-1px)}
+.lobby-join-box{display:flex;gap:6px;align-items:center;background:var(--p1);border:1.5px solid var(--bd2);border-radius:8px;padding:10px 12px}
+.lobby-join-input{flex:1;background:transparent;border:none;outline:none;font-size:14px;font-weight:800;color:var(--tx);font-family:Inter,sans-serif;letter-spacing:.15em;text-transform:uppercase}
+.lobby-join-input::placeholder{font-weight:400;letter-spacing:normal;font-size:10px;color:var(--dm)}
+.lobby-join-btn{background:#6366f1;border:none;border-radius:5px;color:#fff;font-size:10px;font-weight:700;padding:6px 14px;cursor:pointer;font-family:Inter,sans-serif;flex-shrink:0}
+.lobby-sessions-hdr{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--dm);width:100%;max-width:700px;margin-bottom:8px}
+.lobby-sessions{display:flex;flex-direction:column;gap:6px;width:100%;max-width:700px}
+.lobby-session-card{background:var(--p1);border:1.5px solid var(--bd2);border-radius:10px;padding:12px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:all .15s;-webkit-tap-highlight-color:transparent}
+.lobby-session-card:hover,.lobby-session-card:active{background:var(--p2);border-color:rgba(240,180,41,.3)}
+.lobby-session-card *{pointer-events:none}
+.lsc-flag{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.lsc-info{flex:1;min-width:0}
+.lsc-name{font-size:12px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.lsc-meta{font-size:8px;color:var(--mu);margin-top:2px}
+.lsc-code{font-size:9px;font-weight:700;background:var(--p3);padding:2px 8px;border-radius:4px;letter-spacing:.1em;color:var(--dm);flex-shrink:0}
+.lsc-status{font-size:7px;font-weight:800;padding:2px 7px;border-radius:4px;flex-shrink:0}
+.lsc-status.live{background:rgba(34,197,94,.1);color:#22c55e;border:1px solid rgba(34,197,94,.2)}
+.lsc-status.waiting{background:rgba(240,180,41,.1);color:#f0b429;border:1px solid rgba(240,180,41,.2)}
+.lobby-empty{font-size:10px;color:var(--dm);text-align:center;padding:24px;width:100%;max-width:700px;background:var(--p1);border:1px solid var(--bd);border-radius:8px}
+.lobby-create-form{background:var(--p1);border:1.5px solid rgba(240,180,41,.2);border-radius:10px;padding:16px;width:100%;max-width:700px;margin-bottom:16px;display:none}
+.lobby-create-form.open{display:block}
+.lobby-create-form .mrow{margin-bottom:8px}
+/* Team password rows */
+.team-pw-row{display:grid;grid-template-columns:1fr 1fr auto;gap:6px;align-items:center;margin-bottom:5px}
+.team-pw-row input{font-size:10px}
+.team-pw-del{background:transparent;border:1px solid rgba(226,74,74,.25);color:#e24b4a;border-radius:4px;padding:3px 8px;cursor:pointer;font-size:9px;font-family:Inter,sans-serif;flex-shrink:0}
+.team-pw-add{background:transparent;border:1px dashed var(--bd2);color:var(--mu);border-radius:4px;padding:5px;cursor:pointer;font-size:9px;font-family:Inter,sans-serif;width:100%;margin-top:3px;transition:all .15s}
+.team-pw-add:hover{border-color:#f0b429;color:#f0b429}
+/* Permanent lobby toggle */
+.perm-toggle{display:flex;align-items:center;gap:8px;padding:8px 10px;background:rgba(240,180,41,.04);border:1px solid rgba(240,180,41,.15);border-radius:6px;margin-top:6px;cursor:pointer}
+.perm-toggle input[type=checkbox]{width:14px;height:14px;accent-color:#f0b429;cursor:pointer;flex-shrink:0}
+.perm-badge{display:inline-flex;align-items:center;gap:3px;font-size:7px;font-weight:800;padding:1px 6px;border-radius:4px;background:rgba(240,180,41,.12);color:#f0b429;border:1px solid rgba(240,180,41,.3);letter-spacing:.08em;flex-shrink:0}
+/* Lobby host screen */
+.lhost-screen{position:fixed;inset:0;background:var(--bg);z-index:9994;display:none;flex-direction:column}
+.lhost-screen.on{display:flex}
+.lhost-topbar{height:46px;background:var(--p1);border-bottom:2px solid #f0b429;display:flex;align-items:center;padding:0 14px;gap:8px;flex-shrink:0}
+.lhost-body{flex:1;overflow-y:auto;padding:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.lhost-card{background:var(--p1);border:1px solid var(--bd2);border-radius:8px;padding:12px 14px}
+.lhost-card-hdr{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#f0b429;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
+.lhost-full{grid-column:1/-1}
+.lhost-player-row{display:flex;align-items:center;gap:6px;padding:5px 7px;background:var(--p2);border-radius:4px;margin-bottom:3px;font-size:9px}
+.lhost-kick-btn{margin-left:auto;font-size:7px;padding:2px 7px;border-radius:3px;border:1px solid rgba(226,74,74,.2);background:transparent;color:#e24b4a;cursor:pointer;font-family:Inter,sans-serif;flex-shrink:0}
+/* Lobby Net Admin screen */
+.lna-screen{position:fixed;inset:0;background:#080808;z-index:9997;display:none;flex-direction:column}
+.lna-screen.on{display:flex}
+.lna-topbar{height:46px;background:#0d0d0d;border-bottom:2px solid #8b5cf6;display:flex;align-items:center;padding:0 14px;gap:8px;flex-shrink:0}
+.lna-body{flex:1;overflow-y:auto;padding:14px}
+.lna-lobby-card{background:#111;border:1px solid #1a1a1a;border-radius:8px;padding:12px 14px;margin-bottom:8px}
+.lna-lobby-hdr{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.lna-lobby-name{font-size:11px;font-weight:800;flex:1;color:#ccc}
+.lna-lobby-code{font-size:9px;font-family:monospace;background:#1a1a1a;padding:2px 7px;border-radius:3px;color:#555;flex-shrink:0}
+.lna-action-btn{font-size:8px;padding:3px 9px;border-radius:4px;border:none;cursor:pointer;font-family:Inter,sans-serif;font-weight:700;flex-shrink:0}
+/* Punishment log */
+.punish-row{padding:7px 9px;background:rgba(226,74,74,.04);border:1px solid rgba(226,74,74,.1);border-radius:5px;margin-bottom:4px}
+.punish-row-hdr{display:flex;align-items:center;gap:6px;font-size:9px;font-weight:700;margin-bottom:2px}
+.punish-type{font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;background:rgba(226,74,74,.1);color:#e24b4a;border:1px solid rgba(226,74,74,.2)}
+.punish-detail{font-size:8px;color:var(--dm)}
+/* Lobby screen bottom net admin button */
+.lobby-na-btn{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px;background:rgba(139,92,246,.05);border:1px solid rgba(139,92,246,.15);border-radius:8px;width:100%;max-width:700px;margin-top:10px;cursor:pointer;font-size:9px;font-weight:700;color:#8b5cf6;font-family:Inter,sans-serif;transition:all .15s;-webkit-tap-highlight-color:transparent}
+.lobby-na-btn:hover,.lobby-na-btn:active{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.3)}
+/* Lobby option grid */
+.lobby-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.lobby-opt-label{font-size:8px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.08em;margin-bottom:3px}
+.lobby-format-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:4px}
+.lobby-format-btn{padding:7px 4px;border:1.5px solid var(--bd2);border-radius:6px;background:var(--p2);color:var(--mu);font-size:9px;font-weight:700;cursor:pointer;font-family:Inter,sans-serif;text-align:center;transition:all .15s}
+.lobby-format-btn.on{border-color:#f0b429;background:rgba(240,180,41,.1);color:#f0b429}
+.lobby-join-preview{background:var(--p2);border:1.5px solid rgba(240,180,41,.2);border-radius:8px;padding:10px 14px;margin-bottom:4px}
+.ljp-flag{font-size:20px;margin-right:8px}
+.ljp-info{font-size:9px;color:var(--mu);margin-top:2px}
+.ljp-rules{font-size:9px;color:var(--mu);margin-top:6px;padding-top:6px;border-top:1px solid var(--bd);line-height:1.5}
+/* Penalty acknowledgment overlay */
+.pen-ack-overlay{position:fixed;inset:0;background:rgba(0,0,0,.95);z-index:98000;display:none;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center}
+.pen-ack-overlay.on{display:flex}
+.pen-ack-badge{font-size:8px;font-weight:800;letter-spacing:.14em;color:#e24b4a;background:rgba(226,74,74,.1);border:1px solid rgba(226,74,74,.3);padding:4px 14px;border-radius:10px;margin-bottom:16px}
+.pen-ack-type{font-size:22px;font-weight:900;margin-bottom:8px}
+.pen-ack-desc{font-size:12px;color:var(--mu);margin-bottom:24px;max-width:340px;line-height:1.6}
+.pen-ack-btn{background:#e24b4a;border:none;color:#fff;font-size:13px;font-weight:800;padding:14px 40px;border-radius:8px;cursor:pointer;font-family:Inter,sans-serif}
+/* Quick-log strip above log form */
+.quick-log-strip{display:flex;gap:5px;flex-wrap:wrap;padding:8px 10px;background:var(--p2);border-radius:6px;margin-bottom:8px;border:1px solid var(--bd)}
+.ql-btn{padding:5px 11px;border:none;border-radius:5px;font-size:9px;font-weight:800;cursor:pointer;font-family:Inter,sans-serif;color:#fff;flex-shrink:0;transition:all .12s;-webkit-tap-highlight-color:transparent}
+.ql-btn:active{transform:scale(.96)}
+/* Flag grid revamp */
+.flag-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.fg{font-size:10px;font-weight:700;padding:10px 4px;border-radius:7px;border:1.5px solid transparent;cursor:pointer;font-family:Inter,sans-serif;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:3px;background:var(--p2);color:var(--mu)}
+.fg .fg-ico{font-size:20px;line-height:1}
+.fg:hover,.fg:active{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.5)}
+.fg.on{font-weight:900}
+.fg-gr.on{background:rgba(34,197,94,.12);border-color:#22c55e;color:#22c55e}
+.fg-ye.on{background:rgba(240,180,41,.12);border-color:#f0b429;color:#f0b429}
+.fg-re.on{background:rgba(226,74,74,.12);border-color:#e24b4a;color:#e24b4a}
+.fg-pa.on{background:rgba(234,88,12,.12);border-color:#ea580c;color:#ea580c}
+.fg-rs.on{background:rgba(37,99,235,.12);border-color:#2563eb;color:#2563eb}
+.fg-ch.on{background:rgba(255,255,255,.07);border-color:#fff;color:#fff}
+.fg-sb.on{background:rgba(139,92,246,.12);border-color:#8b5cf6;color:#8b5cf6}
+.fg-sc.on{background:rgba(236,72,153,.12);border-color:#ec4899;color:#ec4899}
+.fg-rwc.on{background:rgba(226,74,74,.15);border-color:#e24b4a;color:#e24b4a}
+/* Spectator broadcast revamp */
+.spec-broadcast{display:flex;flex-direction:column;height:100vh;background:#080808;overflow:hidden}
+.spec-ticker{height:28px;background:#111;border-top:1px solid #1a1a1a;display:flex;align-items:center;overflow:hidden;flex-shrink:0}
+.spec-ticker-inner{display:flex;align-items:center;gap:0;animation:ticker-scroll 30s linear infinite;white-space:nowrap}
+@keyframes ticker-scroll{0%{transform:translateX(100vw)}100%{transform:translateX(-100%)}}
+.spec-ticker-item{font-size:9px;font-weight:700;padding:0 20px;color:#555;letter-spacing:.05em}
+.spec-ticker-sep{color:#222;font-size:10px}
+.spec-flag-hero{padding:16px 20px;display:flex;align-items:center;gap:16px;border-bottom:1px solid #111;flex-shrink:0}
+.sfh-icon{font-size:48px;line-height:1;flex-shrink:0}
+.sfh-name{font-size:30px;font-weight:900;letter-spacing:-.5px;line-height:1}
+.sfh-sub{font-size:10px;opacity:.4;margin-top:3px}
+.spec-main{display:grid;grid-template-columns:1fr 300px;flex:1;min-height:0;overflow:hidden}
+.spec-incidents{padding:14px 16px;overflow-y:auto;border-right:1px solid #111}
+.spec-standings-panel{padding:14px 16px;overflow-y:auto;background:#0a0a0a}
+.spec-inc-card{padding:9px 12px;background:#111;border-radius:6px;margin-bottom:6px;border-left:3px solid #333}
+.spec-inc-type{font-size:10px;font-weight:800}
+.spec-inc-meta{font-size:8px;color:#555;margin-top:2px}
+.spec-stand-row{display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #111}
+.spec-stand-pos{font-size:18px;font-weight:900;min-width:24px;color:#333}
+.spec-stand-pos.p1{color:#f0b429}.spec-stand-pos.p2{color:#94a3b8}.spec-stand-pos.p3{color:#b45309}
+.spec-stand-name{flex:1;font-size:11px;font-weight:700;color:#ccc}
+.spec-stand-pts{font-size:12px;font-weight:900;color:#f0b429}
+/* Points standings revamp */
+.champ-stage-row{display:flex;align-items:center;gap:6px;padding:5px 8px;background:var(--p2);border-radius:4px;margin-bottom:3px;font-size:9px}
+.champ-stage-badge{font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;background:rgba(240,180,41,.12);color:#f0b429;border:1px solid rgba(240,180,41,.2);flex-shrink:0}
+/* Racer revamp */
+.racer-stat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:10px}
+.racer-stat-card{background:var(--p2);border-radius:6px;padding:8px 6px;text-align:center}
+.racer-stat-card .rsv{font-size:18px;font-weight:900}
+.racer-stat-card .rsl{font-size:7px;color:var(--mu);font-weight:600;margin-top:2px}
+.lobby-code-display{font-size:28px;font-weight:900;letter-spacing:.2em;color:#f0b429;text-align:center;padding:12px;background:var(--p2);border-radius:6px;margin:8px 0;font-family:monospace}
+.lobby-screen{position:fixed;inset:0;background:#080808;z-index:9998;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:28px 24px;overflow-y:auto}
 .login-screen{position:fixed;inset:0;background:#080808;z-index:9999;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;gap:0}
 /* ── STAGE SYSTEM ── */
 .stage-bar{display:flex;gap:2px;margin-top:2px}
@@ -1004,6 +1258,153 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
 </head>
 <body>
 <!-- LOGIN SCREEN -->
+<!-- LOBBY HOST MANAGEMENT SCREEN -->
+<div class="lhost-screen" id="lhost-screen">
+  <div class="lhost-topbar">
+    <div style="font-size:12px;font-weight:800;color:#f0b429">🏁 Lobby Host</div>
+    <span style="font-size:9px;color:var(--dm)" id="lhost-session-label"></span>
+    <div style="flex:1"></div>
+    <button onclick="closeLobbyHostScreen()" style="background:transparent;border:1px solid var(--bd2);color:var(--mu);font-size:9px;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif">← Back to Login</button>
+  </div>
+  <div class="lhost-body">
+    <div class="lhost-card lhost-full">
+      <div class="lhost-card-hdr">Session Settings
+        <button onclick="saveLobbyHostSettings()" style="background:#f0b429;border:none;color:#000;font-size:8px;font-weight:800;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif">Save</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div><div class="lobby-opt-label">Session Name</div><input class="mi" id="lhost-name" type="text" maxlength="40" style="width:100%"/></div>
+        <div><div class="lobby-opt-label">Track / Venue</div><input class="mi" id="lhost-track" type="text" maxlength="30" style="width:100%"/></div>
+        <div><div class="lobby-opt-label">Total Laps</div><input class="mi" id="lhost-laps" type="number" min="1" max="500" style="width:100%"/></div>
+        <div><div class="lobby-opt-label">Max Drivers</div><input class="mi" id="lhost-max-drivers" type="number" min="1" max="40" style="width:100%"/></div>
+      </div>
+      <div style="margin-top:8px"><div class="lobby-opt-label">Rules / Instructions</div><textarea class="mi" id="lhost-rules" rows="3" maxlength="400" style="width:100%"></textarea></div>
+    </div>
+    <div class="lhost-card">
+      <div class="lhost-card-hdr">Connected Players <span id="lhost-player-count" style="font-size:8px;color:#22c55e">0</span></div>
+      <div id="lhost-player-list"><div style="font-size:9px;color:var(--dm)">No players connected.</div></div>
+    </div>
+    <div class="lhost-card">
+      <div class="lhost-card-hdr">Session Controls</div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <button onclick="lhostStartSession()" style="background:#22c55e;border:none;color:#000;font-size:10px;font-weight:800;padding:8px;border-radius:5px;cursor:pointer;font-family:Inter,sans-serif">▶ Start Race Session</button>
+        <button onclick="lhostEndSession()" style="background:#e24b4a;border:none;color:#fff;font-size:10px;font-weight:800;padding:8px;border-radius:5px;cursor:pointer;font-family:Inter,sans-serif">■ End Race Session</button>
+        <button onclick="lhostBroadcast()" style="background:#6366f1;border:none;color:#fff;font-size:10px;font-weight:700;padding:8px;border-radius:5px;cursor:pointer;font-family:Inter,sans-serif">📢 Broadcast Message</button>
+      </div>
+    </div>
+    <div class="lhost-card lhost-full">
+      <div class="lhost-card-hdr">Team &amp; Driver Passwords
+        <button onclick="saveLobbyPasswords()" style="background:#06b6d4;border:none;color:#000;font-size:8px;font-weight:800;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif">Save</button>
+      </div>
+      <div id="lhost-pw-list"><div style="font-size:9px;color:var(--dm)">No passwords configured.</div></div>
+    </div>
+    <div class="lhost-card lhost-full">
+      <div class="lhost-card-hdr">Punishment Log
+        <button onclick="openLhostPunishModal()" style="background:#e24b4a;border:none;color:#fff;font-size:8px;font-weight:700;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif">+ Issue Punishment</button>
+      </div>
+      <div id="lhost-punish-list"><div style="font-size:9px;color:var(--dm)">No punishments issued.</div></div>
+    </div>
+  </div>
+</div>
+<!-- LOBBY NET ADMIN SCREEN -->
+<div class="lna-screen" id="lna-screen">
+  <div class="lna-topbar">
+    <div style="font-size:12px;font-weight:800;color:#8b5cf6">🌐 Network Administration</div>
+    <span style="font-size:9px;color:#444">Cross-Lobby Access</span>
+    <div style="flex:1"></div>
+    <button onclick="closeLobbyNetAdmin()" style="background:transparent;border:1px solid #222;color:#444;font-size:9px;padding:3px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif">← Back to Lobby</button>
+  </div>
+  <div class="lna-body">
+    <div style="display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap">
+      <button onclick="lnaBroadcastAll()" style="background:#8b5cf6;border:none;color:#fff;font-size:9px;font-weight:700;padding:6px 14px;border-radius:5px;cursor:pointer;font-family:Inter,sans-serif">📢 Broadcast All Lobbies</button>
+      <button onclick="renderLnaLobbies()" style="background:transparent;border:1px solid #222;color:#555;font-size:9px;padding:6px 14px;border-radius:5px;cursor:pointer;font-family:Inter,sans-serif">↺ Refresh</button>
+    </div>
+    <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#333;margin-bottom:8px">Active Lobbies</div>
+    <div id="lna-lobby-list"><div style="font-size:9px;color:#333;padding:20px;text-align:center">Loading lobbies...</div></div>
+    <div style="font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#333;margin:16px 0 8px">Global Punishment Log</div>
+    <div id="lna-punish-log"><div style="font-size:9px;color:#333;padding:12px 0">No punishments recorded.</div></div>
+  </div>
+</div>
+<!-- LOBBY HOST BROADCAST MODAL -->
+<div class="mbg" id="m-lhost-broadcast">
+  <div class="modal sm">
+    <div class="modal-x" onclick="closeModal('m-lhost-broadcast')">✕</div>
+    <div class="modal-h">📢 Lobby Broadcast</div>
+    <div class="mrow"><div class="mlbl">Message</div><textarea class="mi" id="lhost-broadcast-msg" rows="2" maxlength="200" placeholder="Message to all connected users..."></textarea></div>
+    <div class="mbtns"><button class="mbtn" onclick="closeModal('m-lhost-broadcast')">Cancel</button><button class="mbtn pr" onclick="submitLhostBroadcast()">Send</button></div>
+  </div>
+</div>
+<!-- LOBBY HOST PUNISHMENT MODAL -->
+<div class="mbg" id="m-lhost-punish">
+  <div class="modal">
+    <div class="modal-x" onclick="closeModal('m-lhost-punish')">✕</div>
+    <div class="modal-h">⚠ Issue Punishment</div>
+    <div class="mrow"><div class="mlbl">Driver / Player</div><input class="mi" id="lp-driver" type="text" placeholder="Name or car #" maxlength="30"/></div>
+    <div class="mrow"><div class="mlbl">Punishment Type</div>
+      <select class="mi" id="lp-type">
+        <option>Warning</option><option>Kick from Lobby</option><option>Ban from Lobby</option><option>Time Penalty</option><option>Points Deduction</option><option>Disqualification</option>
+      </select>
+    </div>
+    <div class="mrow"><div class="mlbl">Reason</div><textarea class="mi" id="lp-reason" rows="2" maxlength="200" placeholder="Describe the infraction..."></textarea></div>
+    <div class="mbtns"><button class="mbtn" onclick="closeModal('m-lhost-punish')">Cancel</button><button class="mbtn pr" onclick="submitLhostPunish()">Issue</button></div>
+  </div>
+</div>
+<!-- LNA BROADCAST MODAL -->
+<!-- NET ADMIN PASSWORD MODAL (lobby screen) -->
+<div class="mbg" id="m-lna-pw" style="z-index:10002">
+  <div class="modal sm">
+    <div class="modal-x" onclick="closeModal('m-lna-pw')">✕</div>
+    <div class="modal-h">🌐 Network Administration</div>
+    <div class="modal-sub">Enter the Net Admin password to continue.</div>
+    <div class="acct-err" id="lna-pw-err" style="font-size:9px;color:#e24b4a;margin-bottom:8px;text-align:center;min-height:14px"></div>
+    <input class="mi" id="lna-pw-input" type="password" placeholder="Password"
+      maxlength="40" autocomplete="off"
+      onkeydown="if(event.key==='Enter')submitLnaPw()"/>
+    <div class="mbtns" style="margin-top:12px">
+      <button class="mbtn" onclick="closeModal('m-lna-pw')">Cancel</button>
+      <button class="mbtn pr" onclick="submitLnaPw()">Enter →</button>
+    </div>
+  </div>
+</div>
+<!-- LOBBY HOST PASSWORD MODAL -->
+<div class="mbg" id="m-lhost-pw" style="z-index:10002">
+  <div class="modal sm">
+    <div class="modal-x" onclick="closeModal('m-lhost-pw')">✕</div>
+    <div class="modal-h">🏁 Lobby Host Access</div>
+    <div class="modal-sub">Enter the host password for this session.</div>
+    <div class="acct-err" id="lhost-pw-err" style="font-size:9px;color:#e24b4a;margin-bottom:8px;text-align:center;min-height:14px"></div>
+    <input class="mi" id="lhost-pw-input" type="password" placeholder="Host password"
+      maxlength="40" autocomplete="off"
+      onkeydown="if(event.key==='Enter')submitLhostPw()"/>
+    <div class="mbtns" style="margin-top:12px">
+      <button class="mbtn" onclick="closeModal('m-lhost-pw')">Cancel</button>
+      <button class="mbtn pr" onclick="submitLhostPw()">Enter →</button>
+    </div>
+  </div>
+</div>
+<!-- JOIN PASSWORD MODAL -->
+<div class="mbg" id="m-join-pw" style="z-index:10002">
+  <div class="modal sm">
+    <div class="modal-x" onclick="closeModal('m-join-pw')">✕</div>
+    <div class="modal-h">🔒 Password Required</div>
+    <div class="modal-sub" id="join-pw-session-name">This session requires a password.</div>
+    <div class="acct-err" id="join-pw-err" style="font-size:9px;color:#e24b4a;margin-bottom:8px;text-align:center;min-height:14px"></div>
+    <input class="mi" id="join-pw-input" type="password" placeholder="Session password"
+      maxlength="40" autocomplete="off"
+      onkeydown="if(event.key==='Enter')submitJoinPw()"/>
+    <div class="mbtns" style="margin-top:12px">
+      <button class="mbtn" onclick="closeModal('m-join-pw')">Cancel</button>
+      <button class="mbtn pr" onclick="submitJoinPw()">Join →</button>
+    </div>
+  </div>
+</div>
+<div class="mbg" id="m-lna-broadcast">
+  <div class="modal sm">
+    <div class="modal-x" onclick="closeModal('m-lna-broadcast')">✕</div>
+    <div class="modal-h">📢 Broadcast — All Lobbies</div>
+    <div class="mrow"><div class="mlbl">Message</div><textarea class="mi" id="lna-broadcast-msg" rows="2" maxlength="200" placeholder="Message to all active sessions..."></textarea></div>
+    <div class="mbtns"><button class="mbtn" onclick="closeModal('m-lna-broadcast')">Cancel</button><button class="mbtn pr" onclick="submitLnaBroadcast()">Send to All</button></div>
+  </div>
+</div>
 <!-- HUB OVERLAY — accessible to all roles -->
 <div class="hub-overlay" id="hub-overlay">
   <div class="hub-overlay-bar">
@@ -1085,6 +1486,79 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
   </div>
   <div style="padding:14px 20px;border-top:1px solid #111;font-size:9px;color:#2a2a2a;text-align:center">NASCAR Panel · Public Race Summary · <span id="pub-generated"></span></div>
 </div>
+<!-- TV DISPLAY MODE -->
+<div class="tv-screen" id="tv-screen">
+  <div class="tv-flag-hero" id="tv-flag-hero">
+    <div class="tv-flag-icon" id="tv-flag-icon">🟢</div>
+    <div>
+      <div class="tv-flag-name" id="tv-flag-name" style="color:#22c55e">GREEN FLAG</div>
+      <div class="tv-lap" id="tv-lap">Lap —</div>
+      <div style="font-size:14px;color:#333;margin-top:4px" id="tv-track"></div>
+    </div>
+    <button onclick="closeTVMode()" style="position:absolute;top:16px;right:16px;background:transparent;border:1px solid #222;color:#333;font-size:10px;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif">✕ Exit</button>
+  </div>
+  <div class="tv-bottom">
+    <div class="tv-standings">
+      <div class="tv-section-lbl">Points Standings</div>
+      <div id="tv-standings"></div>
+    </div>
+    <div class="tv-incidents">
+      <div class="tv-section-lbl">Recent Incidents</div>
+      <div id="tv-incidents"></div>
+    </div>
+  </div>
+</div>
+<!-- SCOREBOARD WALL -->
+<div class="sb-screen" id="sb-screen">
+  <div class="sb-header">
+    <div class="sb-title" id="sb-title">Live Standings</div>
+    <div class="sb-flag-chip" id="sb-flag-chip" style="color:#22c55e;border-color:#22c55e">🟢 GREEN FLAG</div>
+    <div style="flex:1"></div>
+    <div style="font-size:10px;color:#333" id="sb-lap"></div>
+    <button onclick="closeScoreboard()" style="background:transparent;border:1px solid #1a1a1a;color:#333;font-size:10px;padding:4px 10px;border-radius:4px;cursor:pointer;font-family:Inter,sans-serif;margin-left:16px">✕ Close</button>
+  </div>
+  <div class="sb-body" id="sb-body"></div>
+</div>
+<!-- LOWER THIRD BAR -->
+<div class="lower-third" id="lower-third">
+  <div class="lt-bar" id="lt-bar">
+    <div class="lt-icon" id="lt-icon">🟢</div>
+    <div class="lt-label" id="lt-label">FLAG CHANGE</div>
+    <div class="lt-text" id="lt-text">Green Flag — Race in progress</div>
+    <div class="lt-lap" id="lt-lap">Lap —</div>
+  </div>
+</div>
+<!-- FLAG CONFIRM BAR -->
+<div class="flag-confirm-bar" id="flag-confirm-bar">
+  <div class="flag-confirm-txt" id="flag-confirm-txt">Confirm: Set Green Flag?</div>
+  <div class="flag-confirm-btns">
+    <button class="flag-confirm-yes" id="flag-confirm-yes" onclick="confirmFlagChange()">Confirm</button>
+    <button class="flag-confirm-no" onclick="cancelFlagChange()">Cancel</button>
+  </div>
+</div>
+<!-- SCRIPT PROMPTS OVERLAY -->
+<div class="script-overlay" id="script-overlay"></div>
+<!-- PREDICTION MODAL -->
+<div class="mbg" id="m-predictions">
+  <div class="modal wide">
+    <div class="modal-x" onclick="closeModal('m-predictions')">✕</div>
+    <div class="modal-h">🎯 Pre-Race Predictions</div>
+    <div class="modal-sub">Pick your predictions before the race starts. Results are scored after.</div>
+    <div id="pred-content"><div class="empty" style="padding:20px">Waiting for race to be set up...</div></div>
+    <div class="mbtns" id="pred-btns" style="display:none">
+      <button class="mbtn" onclick="closeModal('m-predictions')">Cancel</button>
+      <button class="mbtn pr" onclick="submitPredictions()">Lock In Predictions</button>
+    </div>
+  </div>
+</div>
+<!-- PREDICTION RESULTS MODAL -->
+<div class="mbg" id="m-pred-results">
+  <div class="modal">
+    <div class="modal-x" onclick="closeModal('m-pred-results')">✕</div>
+    <div class="modal-h">🏆 Prediction Results</div>
+    <div id="pred-results-content"></div>
+  </div>
+</div>
 <!-- ══ LOCKOUT SCREEN ══ -->
 <div class="lockout-screen" id="lockout-screen">
   <div class="lockout-center">
@@ -1124,6 +1598,122 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
       </div>
     </div>
   </div>
+</div>
+<!-- ══ NAME ENTRY SCREEN ══ -->
+<div class="acct-screen" id="acct-screen">
+  <div class="acct-box">
+    <div class="acct-logo">🏁</div>
+    <div class="acct-title">NASCAR Panel</div>
+    <div class="acct-sub">Enter your name to continue</div>
+    <div class="acct-err" id="acct-signin-err"></div>
+    <input class="acct-input" id="acct-si-name" type="text" placeholder="Your full name"
+      maxlength="40" autocomplete="name"
+      onkeydown="if(event.key==='Enter')submitSignIn()"/>
+    <button class="acct-btn primary" onclick="submitSignIn()">Continue →</button>
+  </div>
+</div>
+<!-- ══ LOBBY SCREEN ══ -->
+<div class="lobby-screen" id="lobby-screen">
+  <div class="lobby-header">
+    <div style="font-size:32px">🏁</div>
+    <div class="lobby-title">NASCAR Panel</div>
+    <div class="lobby-sub">Create a new session or join an existing one</div>
+  </div>
+
+  <!-- Create form (shown when Create is clicked) -->
+  <div class="lobby-create-form" id="lobby-create-form">
+    <div style="font-size:12px;font-weight:800;margin-bottom:12px;color:#f0b429">New Session</div>
+    <div class="mrow"><div class="mlbl" style="font-size:9px">Session Name <span class="rq">*</span></div><input class="mi" id="lobby-session-name" type="text" placeholder="e.g. Summit County Round 3" maxlength="40"/></div>
+    <div class="mrow"><div class="mlbl" style="font-size:9px">Track / Venue</div><input class="mi" id="lobby-track-name" type="text" placeholder="e.g. Phoenix Raceway" maxlength="30"/></div>
+    <div class="mrow">
+      <div class="lobby-opt-label">Race Format</div>
+      <div class="lobby-format-grid">
+        <div class="lobby-format-btn on" id="fmt-sprint" onclick="selectLobbyFormat('sprint')">🏁 Sprint</div>
+        <div class="lobby-format-btn" id="fmt-endurance" onclick="selectLobbyFormat('endurance')">⏱ Endurance</div>
+        <div class="lobby-format-btn" id="fmt-championship" onclick="selectLobbyFormat('championship')">🏆 Championship</div>
+        <div class="lobby-format-btn" id="fmt-practice" onclick="selectLobbyFormat('practice')">🔧 Practice</div>
+      </div>
+    </div>
+    <div class="lobby-opts">
+      <div>
+        <div class="lobby-opt-label">Total Laps</div>
+        <input class="mi" id="lobby-laps" type="number" min="1" max="500" placeholder="e.g. 50" style="width:100%"/>
+      </div>
+      <div>
+        <div class="lobby-opt-label">Max Drivers</div>
+        <input class="mi" id="lobby-max-drivers" type="number" min="1" max="40" placeholder="e.g. 12" style="width:100%"/>
+      </div>
+    </div>
+    <div class="lobby-opts">
+      <div>
+        <div class="lobby-opt-label">Join Password <span style="color:var(--dm);font-weight:400">(optional)</span></div>
+        <input class="mi" id="lobby-password" type="text" placeholder="Leave blank = open" maxlength="20" style="width:100%"/>
+      </div>
+      <div>
+        <div class="lobby-opt-label">Host Name</div>
+        <input class="mi" id="lobby-host-name" type="text" placeholder="Race Director" maxlength="24" style="width:100%"/>
+      </div>
+    </div>
+    <div class="mrow">
+      <div class="lobby-opt-label">Custom Rules / Instructions <span style="color:var(--dm);font-weight:400">(shown to joiners)</span></div>
+      <textarea class="mi" id="lobby-rules-text" rows="3" maxlength="400" placeholder="e.g. No contact in Turn 1. Pit road speed limit 55mph. Rejoining from pit must yield..."></textarea>
+    </div>
+    <div style="display:flex;gap:6px;margin-top:12px">
+      <button class="mbtn" onclick="closeLobbyCreate()" style="flex:1">Cancel</button>
+      <button class="mbtn pr" onclick="createLobby()" style="flex:1">Create Session</button>
+    </div>
+    <!-- TEAM PASSWORDS SECTION -->
+    <div style="margin-top:14px;border-top:1px solid var(--bd);padding-top:12px">
+      <div style="font-size:10px;font-weight:800;margin-bottom:10px;color:#06b6d4">Team &amp; Driver Passwords</div>
+      <!-- Per-team passwords -->
+      <div class="lobby-opt-label" style="margin-bottom:6px">Teams <span style="color:var(--dm);font-weight:400;font-size:7px">(each team gets a password — only team members know it)</span></div>
+      <div id="team-pw-list"></div>
+      <button class="team-pw-add" onclick="addTeamPwRow()">+ Add Team</button>
+      <!-- Per-car passwords -->
+      <div class="lobby-opt-label" style="margin-top:10px;margin-bottom:6px">Car Numbers <span style="color:var(--dm);font-weight:400;font-size:7px">(lock a specific car # to one driver)</span></div>
+      <div id="car-pw-list"></div>
+      <button class="team-pw-add" onclick="addCarPwRow()">+ Add Car Lock</button>
+      <!-- Crew password -->
+      <div class="lobby-opt-label" style="margin-top:10px;margin-bottom:4px">Crew / Spotter Password <span style="color:var(--dm);font-weight:400;font-size:7px">(anyone with this joins as crew — no car assigned)</span></div>
+      <input class="mi" id="lobby-crew-pw" type="text" placeholder="Leave blank = no crew role" maxlength="20"/>
+      <!-- Lobby Host password -->
+      <div class="lobby-opt-label" style="margin-top:10px;margin-bottom:4px">Lobby Host Password <span style="color:var(--dm);font-weight:400;font-size:7px">(required to access host management panel)</span></div>
+      <input class="mi" id="lobby-host-pw" type="text" placeholder="Required to use Host panel" maxlength="20"/>
+    </div>
+    <!-- PERMANENT LOBBY -->
+    <label class="perm-toggle">
+      <input type="checkbox" id="lobby-permanent" onchange="togglePermanentFields(this.checked)"/>
+      <div style="flex:1">
+        <div style="font-size:10px;font-weight:700;color:#f0b429">Permanent Lobby</div>
+        <div style="font-size:8px;color:var(--dm)">Never expires — persists until manually deleted. Shows a permanent badge on the lobby list.</div>
+      </div>
+      <span class="perm-badge">🏛 PERM</span>
+    </label>
+    <div id="perm-pw-row" style="display:none;margin-top:6px">
+      <div class="lobby-opt-label">Permanent Re-join Password <span style="color:var(--dm);font-weight:400;font-size:7px">(anyone who knows this can always re-enter)</span></div>
+      <input class="mi" id="lobby-perm-pw" type="text" placeholder="e.g. SUMMIT2026" maxlength="20"/>
+    </div>
+  </div>
+
+  <div class="lobby-actions">
+    <button class="lobby-btn-primary" onclick="openLobbyCreate()">+ Create Session</button>
+    <div class="lobby-join-box">
+      <input class="lobby-join-input" id="lobby-join-code" type="text" placeholder="Enter session code..." maxlength="6"
+        onkeydown="if(event.key==='Enter')joinLobbyByCode()"
+        oninput="this.value=this.value.toUpperCase().replace(/[^A-Z0-9]/g,'')"/>
+      <button class="lobby-join-btn" onclick="joinLobbyByCode()">Join</button>
+    </div>
+  </div>
+
+  <div class="lobby-sessions-hdr">Active Sessions</div>
+  <div class="lobby-sessions" id="lobby-sessions">
+    <div class="lobby-empty" id="lobby-empty">Searching for sessions...</div>
+  </div>
+
+  <div style="margin-top:20px;font-size:8px;color:var(--dm);text-align:center">
+    Sessions are automatically removed after 4 hours of inactivity
+  </div>
+  <div class="lobby-na-btn" onclick="openLobbyNetAdmin()">🌐 Network Administration — Access All Lobbies</div>
 </div>
 <div class="login-screen" id="login-screen">
   <div class="login-logo">🏁</div>
@@ -1325,6 +1915,12 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
       <div id="na-device-list" style="max-height:250px;overflow-y:auto"><div style="font-size:9px;color:var(--dm)">No devices connected.</div></div>
     </div>
     <div class="na-card na-full">
+      <div class="na-card-hdr">🔐 Pending Account Requests
+        <span id="na-pending-count" style="font-size:8px;color:#f0b429;font-weight:700">0 pending</span>
+      </div>
+      <div id="na-pending-accounts"><div style="font-size:9px;color:var(--dm)">No pending registrations.</div></div>
+    </div>
+    <div class="na-card na-full">
       <div class="na-card-hdr">Access Log <button onclick="clearAccessLog()" style="font-size:7px;padding:1px 6px;border-radius:3px;border:1px solid var(--bd2);background:transparent;color:var(--dm);cursor:pointer;font-family:Inter,sans-serif">Clear</button></div>
       <div id="na-access-log" style="max-height:300px;overflow-y:auto"><div style="font-size:9px;color:var(--dm)">No access events yet.</div></div>
     </div>
@@ -1384,7 +1980,7 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
         <div style="display:flex;align-items:center;gap:6px">
           <div class="lock-badge" id="sc-lock-badge">🔓 Unlocked</div>
           <button onclick="toggleResultsLock()" style="font-size:8px;padding:3px 8px;border-radius:4px;border:1px solid var(--bd2);background:var(--p2);color:var(--mu);cursor:pointer;font-family:Inter,sans-serif">Toggle Lock</button>
-          <button onclick="printScorerReport()" style="font-size:8px;padding:3px 8px;border-radius:4px;background:#f97316;border:none;color:#fff;cursor:pointer;font-family:Inter,sans-serif;font-weight:700">🖨 Export</button>
+          <button onclick="generateRaceReport()" style="font-size:8px;padding:3px 8px;border-radius:4px;background:#f97316;border:none;color:#fff;cursor:pointer;font-family:Inter,sans-serif;font-weight:700">📄 Full Report</button>
         </div>
       </div>
       <div id="sc-race-status" style="font-size:9px;color:var(--dm)">No session active.</div>
@@ -1411,35 +2007,84 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
     </div>
   </div>
 </div>
-<!-- SPECTATOR SCREEN -->
+<!-- SPECTATOR SCREEN — broadcast layout -->
 <div id="spectator-screen">
   <div class="spec-topbar">
-    <div class="spec-brand">👁️ NASCAR Panel — Spectator View</div>
-    <div class="spec-live-badge"><div class="rl-dot" style="background:#6366f1"></div>LIVE</div>
+    <div class="spec-brand">🏁 NASCAR Panel</div>
+    <div class="spec-live-badge"><div class="rl-dot" style="background:#e24b4a;animation:pulse 1s infinite"></div>LIVE</div>
+    <div id="spec-session-chip" style="font-size:9px;color:var(--mu);margin-left:4px"></div>
     <div style="flex:1"></div>
-    <span style="font-size:8px;color:var(--dm);margin-right:6px">Incidents delayed 1 min · Critical incidents hidden</span>
+    <span style="font-size:8px;color:var(--dm);margin-right:6px">Incidents delayed 1 min · Critical hidden</span>
+    <button onclick="openPredictions()" style="font-size:10px;padding:3px 8px;background:transparent;border:1px solid var(--bd2);color:var(--mu);border-radius:4px;cursor:pointer;font-family:Inter,sans-serif;margin-right:4px">🎯 Predict</button>
     <button onclick="openRoleHub()" style="font-size:10px;padding:3px 8px;background:transparent;border:1px solid var(--bd2);color:var(--mu);border-radius:4px;cursor:pointer;font-family:Inter,sans-serif;margin-right:4px">Hub</button>
     <button class="tb-logout" onclick="logout()">← Exit</button>
   </div>
-  <div class="spec-body" id="spec-body">
-    <div class="spec-card spec-full">
-      <div class="spec-card-hdr">Current Flag</div>
-      <div class="racer-flag-big" id="spec-flag-big">
-        <div class="rfb-icon" id="spec-flag-icon">🟢</div>
-        <div><div class="rfb-lbl" id="spec-flag-lbl" style="color:#22c55e">GREEN FLAG</div><div class="rfb-sub" id="spec-flag-sub">Race in progress</div></div>
-        <div style="margin-left:auto;text-align:right">
-          <div style="font-size:18px;font-weight:900" id="spec-lap">Lap —</div>
-          <div style="font-size:8px;color:var(--mu)" id="spec-track">—</div>
+  <!-- Weather banner -->
+  <div class="wx-banner" id="spec-wx-banner">
+    <span class="wx-icon" id="spec-wx-icon">⛅</span>
+    <span id="spec-wx-label" style="flex:1">Clear</span>
+    <span style="font-size:8px;color:rgba(255,255,255,.3)" id="spec-wx-temp"></span>
+  </div>
+  <!-- Flag hero banner -->
+  <div class="spec-flag-hero" id="spec-flag-hero">
+    <div class="sfh-icon" id="spec-flag-icon">🟢</div>
+    <div style="flex:1">
+      <div class="sfh-name" id="spec-flag-lbl" style="color:#22c55e">GREEN FLAG</div>
+      <div class="sfh-sub" id="spec-flag-sub">Race in progress</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:32px;font-weight:900;color:#fff" id="spec-lap">Lap —</div>
+      <div style="font-size:9px;color:#555" id="spec-track"></div>
+    </div>
+  </div>
+  <!-- Ticker -->
+  <div class="spec-ticker">
+    <div class="spec-ticker-inner" id="spec-ticker-inner">
+      <span class="spec-ticker-item">NASCAR Panel · Live Race Feed</span>
+      <span class="spec-ticker-sep">·</span>
+      <span class="spec-ticker-item" id="spec-ticker-standings">Standings loading...</span>
+    </div>
+  </div>
+  <!-- Main body -->
+  <div class="spec-main" id="spec-body">
+    <div class="spec-incidents" id="spec-incidents-wrap">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#444;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+        Live Incidents
+        <div style="display:flex;gap:0">
+          <button id="spec-tab-inc" onclick="switchSpecTab('inc')" style="font-size:8px;padding:2px 8px;border-radius:3px 0 0 3px;border:1px solid #222;background:#111;color:#888;cursor:pointer;font-family:Inter,sans-serif;font-weight:700">Incidents</button>
+          <button id="spec-tab-chat" onclick="switchSpecTab('chat')" style="font-size:8px;padding:2px 8px;border-radius:0 3px 3px 0;border:1px solid #222;border-left:none;background:#111;color:#888;cursor:pointer;font-family:Inter,sans-serif;font-weight:700">💬 Chat</button>
+        </div>
+      </div>
+      <div id="spec-inc-panel">
+        <div id="spec-incidents"><div style="color:#333;font-size:10px;padding:12px 0">No incidents yet.</div></div>
+      </div>
+      <div id="spec-chat-panel" style="display:none;height:calc(100% - 40px)">
+        <div class="spec-chat-wrap">
+          <div class="spec-chat-feed" id="spec-chat-feed"><div style="color:#333;font-size:10px;padding:8px 0;text-align:center">No messages yet.</div></div>
+          <div class="chat-input-row">
+            <input id="spec-chat-input" type="text" placeholder="Message..." maxlength="120"
+              style="flex:1;background:#111;border:1px solid #1a1a1a;border-radius:5px;color:#ccc;font-size:10px;padding:6px 10px;outline:none;font-family:Inter,sans-serif"
+              onkeydown="if(event.key==='Enter')sendSpecChat()"/>
+            <button onclick="sendSpecChat()" style="background:#6366f1;border:none;color:#fff;font-size:9px;font-weight:700;padding:6px 12px;border-radius:5px;cursor:pointer;font-family:Inter,sans-serif;flex-shrink:0">Send</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="spec-card">
-      <div class="spec-card-hdr">Live Incidents <span class="spec-delay-badge">⏱ 1-min delay</span></div>
-      <div id="spec-incidents"><div style="font-size:9px;color:var(--dm)">No incidents yet.</div></div>
-    </div>
-    <div class="spec-card">
-      <div class="spec-card-hdr">Points Standings</div>
-      <div id="spec-standings"><div style="font-size:9px;color:var(--dm)">No standings yet.</div></div>
+    <div class="spec-standings-panel">
+      <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#444;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between">
+        Points
+        <div style="display:flex;gap:0">
+          <button id="spec-tab-stand" onclick="switchSpecSide('stand')" style="font-size:8px;padding:2px 8px;border-radius:3px 0 0 3px;border:1px solid #222;background:#111;color:#888;cursor:pointer;font-family:Inter,sans-serif;font-weight:700">Standings</button>
+          <button id="spec-tab-fans" onclick="switchSpecSide('fans')" style="font-size:8px;padding:2px 8px;border-radius:0 3px 3px 0;border:1px solid #222;border-left:none;background:#111;color:#888;cursor:pointer;font-family:Inter,sans-serif;font-weight:700">Fan Votes</button>
+        </div>
+      </div>
+      <div id="spec-stand-panel">
+        <div id="spec-standings"><div style="color:#333;font-size:10px;padding:12px 0">No standings yet.</div></div>
+      </div>
+      <div id="spec-fans-panel" style="display:none">
+        <div id="spec-fan-votes"><div style="color:#333;font-size:10px;padding:8px 0;text-align:center">No votes yet.</div></div>
+        <div style="border-top:1px solid #1a1a1a;padding-top:8px;margin-top:8px" id="spec-vote-action"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -1450,6 +2095,14 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
   <div class="announce-msg" id="announce-msg"></div>
   <div class="announce-sub">Tap below to confirm you've read this message</div>
   <button class="announce-ack" onclick="acknowledgeAnnouncement()">✓ Acknowledged</button>
+</div>
+<!-- PENALTY ACKNOWLEDGMENT OVERLAY -->
+<div class="pen-ack-overlay" id="pen-ack-overlay">
+  <div class="pen-ack-badge">⚠ PENALTY ISSUED</div>
+  <div class="pen-ack-type" id="pen-ack-type">Drive-Through Penalty</div>
+  <div class="pen-ack-desc" id="pen-ack-desc">Race Control has issued you a penalty. You must acknowledge receipt before continuing.</div>
+  <div style="font-size:9px;color:var(--dm);margin-bottom:20px" id="pen-ack-reason"></div>
+  <button class="pen-ack-btn" onclick="acknowledgePenalty()">I Understand — Acknowledge</button>
 </div>
 <!-- RACER SCREEN (shown after racer login) -->
 <div id="racer-screen">
@@ -1604,15 +2257,15 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
           <div class="sec-body" id="rc">
             <div class="flag-disp" id="flag-disp"><div class="fd-ic" id="fd-ic">🟢</div><div><div class="fd-lbl" id="fd-lbl">GREEN FLAG</div><div class="fd-sub" id="fd-sub">Race in progress</div></div></div>
             <div class="flag-grid">
-              <button class="fg fg-gr on" id="fb-Green" onclick="setFlag('Green')">🟢<br>Green</button>
-              <button class="fg fg-ye" id="fb-Yellow" onclick="setFlag('Yellow')">🟡<br>Yellow</button>
-              <button class="fg fg-re" id="fb-Red" onclick="setFlag('Red')">🔴<br>Red</button>
-              <button class="fg fg-pa" id="fb-Pace" onclick="setFlag('Pace Lap')">🟠<br>Pace</button>
-              <button class="fg fg-rs" id="fb-Restart" onclick="setFlag('Restart')">🔵<br>Restart</button>
-              <button class="fg fg-ch" id="fb-Checkered" onclick="setFlag('Checkered')">⬜<br>Checkered</button>
-              <button class="fg fg-sb" id="fb-StageBreak" onclick="setFlag('Stage Break')" title="Stage Break — field holds, no race stoppage">🟣<br>Stage Brk</button>
-              <button class="fg fg-sc" id="fb-StageCaution" onclick="setFlag('Stage Caution')" title="Stage caution — controlled pace between stages">🩷<br>Stage Ctn</button>
-              <button class="fg fg-rwc" id="fb-RWC" onclick="setFlag('Red Checkered')" title="Race Halted — Weather / Incident" style="grid-column:3/4">🏁<br>Halted</button>
+              <button class="fg fg-gr on" id="fb-Green" onclick="setFlagWithConfirm('Green')"><div class="fg-ico">🟢</div>Green</button>
+              <button class="fg fg-ye" id="fb-Yellow" onclick="setFlagWithConfirm('Yellow')"><div class="fg-ico">🟡</div>Yellow</button>
+              <button class="fg fg-re" id="fb-Red" onclick="setFlagWithConfirm('Red')"><div class="fg-ico">🔴</div>Red</button>
+              <button class="fg fg-pa" id="fb-Pace" onclick="setFlagWithConfirm('Pace Lap')"><div class="fg-ico">🟠</div>Pace</button>
+              <button class="fg fg-rs" id="fb-Restart" onclick="setFlagWithConfirm('Restart')"><div class="fg-ico">🔵</div>Restart</button>
+              <button class="fg fg-ch" id="fb-Checkered" onclick="setFlagWithConfirm('Checkered')"><div class="fg-ico">⬜</div>Checkered</button>
+              <button class="fg fg-sb" id="fb-StageBreak" onclick="setFlagWithConfirm('Stage Break')"><div class="fg-ico">🟣</div>Stage Brk</button>
+              <button class="fg fg-sc" id="fb-StageCaution" onclick="setFlagWithConfirm('Stage Caution')"><div class="fg-ico">🩷</div>Stage Ctn</button>
+              <button class="fg fg-rwc" id="fb-RWC" onclick="setFlagWithConfirm('Red Checkered')" style="grid-column:3/4"><div class="fg-ico">🏁</div>Halted</button>
             </div>
             <div class="lap-row"><span class="lap-lbl">Current Lap</span><div class="lap-ctrl"><button class="lap-btn" onclick="adjLap(-1)">−</button><span class="lap-num" id="lap-num">0</span><button class="lap-btn" onclick="adjLap(1)">+</button></div></div>
           </div>
@@ -1664,6 +2317,10 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
               <button class="tb2 marshal-hidden" style="background:#1d4ed8" onclick="openRestartOrder()">🔄 Restart Order</button>
               <button class="tb2 marshal-hidden" style="background:#065f46" onclick="openQR()">📱 QR Code</button>
               <button class="tb2 marshal-hidden" style="background:#374151" onclick="openChangeLaps()">🔢 Change Laps</button>
+              <button class="tb2 marshal-hidden" style="background:#f97316" onclick="generateRaceReport()">📄 Race Report</button>
+              <button class="tb2 marshal-hidden" style="background:#050505;border:1px solid #333" onclick="openTVMode()">📺 TV Mode</button>
+              <button class="tb2 marshal-hidden" style="background:#050505;border:1px solid #333" onclick="openScoreboard()">🏆 Scoreboard</button>
+              <button class="tb2 marshal-hidden" style="background:#6366f1" onclick="scorePredictions()">🎯 Score Predictions</button>
               <button class="tb2 marshal-hidden" style="background:#6366f1" onclick="openCountdownModal()">⏳ Countdown</button>
               <button class="tb2 marshal-hidden" style="background:#7c3aed" onclick="openH2H()">⚡ H2H</button>
               <button class="tb2 marshal-hidden" style="background:#dc2626" onclick="openHeatmap()">🔥 Heatmap</button>
@@ -1715,6 +2372,17 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
       <!-- MIDDLE -->
       <div class="mid">
         <div class="mid-h">Create New Log</div>
+        <!-- QUICK-LOG STRIP -->
+        <div class="quick-log-strip">
+          <span style="font-size:8px;font-weight:700;color:var(--dm);align-self:center;flex-shrink:0">Quick:</span>
+          <button class="ql-btn" style="background:#b45309" onclick="quickLog('Wall Damage')">🧱 Wall</button>
+          <button class="ql-btn" style="background:#4b5563" onclick="quickLog('Spin Out')">🌀 Spin</button>
+          <button class="ql-btn" style="background:#92400e" onclick="quickLog('Debris on Track')">⚠ Debris</button>
+          <button class="ql-btn" style="background:#dc2626" onclick="quickLog('Red Flag')">🚩 Red</button>
+          <button class="ql-btn" style="background:#2563eb" onclick="quickLog('AMR Ambulance')">🚑 AMR</button>
+          <button class="ql-btn" style="background:#ea580c" onclick="quickLog('Tow / Wrecker')">🚗 Tow</button>
+          <button class="ql-btn" style="background:#0e7490" onclick="quickLog('Fluid / Oil')">💧 Fluid</button>
+        </div>
         <div class="f"><div class="fl">Response Type <span class="rq">*</span></div>
           <select class="fi" id="ft" onchange="onTypeChange()">
             <option value="">— Select type —</option>
@@ -1768,6 +2436,11 @@ body.role-racer .topbar,body.role-racer .app-body{display:none}
           </div>
         </div>
         <div class="f"><div class="fl">Notes</div><textarea class="fi" id="fn" rows="2" placeholder="Additional details..."></textarea></div>
+        <div class="map-pin-prompt" id="map-pin-prompt" onclick="openMapPinSelector()">
+          📍 <span id="map-pin-label">Tap to pin incident location on track map</span>
+        </div>
+        <input type="hidden" id="map-pin-x" value=""/>
+        <input type="hidden" id="map-pin-y" value=""/>
         <button class="btn-log" onclick="submitLog()">+ Log Response &nbsp;(Ctrl+↵)</button>
       </div>
       <!-- RIGHT -->
@@ -2495,6 +3168,42 @@ const firebaseConfig = {
     <div class="sc-row"><span class="sc-desc">Toggle Light / Dark Mode</span><span class="sc-key">D</span></div>
   </div>
 </div>
+<!-- MAP PIN SELECTOR MODAL -->
+<div class="mbg" id="m-map-pin">
+  <div class="modal" style="max-width:480px">
+    <div class="modal-x" onclick="closeModal('m-map-pin')">✕</div>
+    <div class="modal-h">📍 Pin Incident Location</div>
+    <div class="modal-sub">Tap anywhere on the track to mark the incident location.</div>
+    <div style="position:relative;background:#060606;border-radius:8px;overflow:hidden;cursor:crosshair;margin-bottom:10px" id="pin-map-wrap">
+      <svg viewBox="0 0 400 220" id="pin-map-svg" style="width:100%;display:block;touch-action:none">
+        <rect width="400" height="220" fill="#060606"/>
+        <text x="200" y="115" text-anchor="middle" fill="#333" font-size="12" font-family="Inter">Select a track to pin location</text>
+      </svg>
+      <div id="pin-cursor" style="display:none;position:absolute;width:20px;height:20px;border-radius:50%;background:#f0b429;border:2px solid #fff;transform:translate(-50%,-50%);pointer-events:none;box-shadow:0 2px 8px rgba(240,180,41,.6)"></div>
+    </div>
+    <div style="font-size:9px;color:var(--dm);text-align:center" id="pin-coords-label">No pin set</div>
+    <div class="mbtns" style="margin-top:8px">
+      <button class="mbtn" onclick="clearMapPin()">Clear Pin</button>
+      <button class="mbtn pr" onclick="confirmMapPin()">Confirm Location</button>
+    </div>
+  </div>
+</div>
+<!-- DRIVER PROFILE MODAL -->
+<div class="mbg" id="m-driver-profile">
+  <div class="modal wide">
+    <div class="modal-x" onclick="closeModal('m-driver-profile')">✕</div>
+    <div class="modal-h" id="dp-title">Driver Profile</div>
+    <div class="profile-stat-grid" id="dp-stats"></div>
+    <div class="report-section">
+      <div class="report-section-hdr">Race History</div>
+      <div id="dp-race-history" style="font-size:9px;color:var(--dm)">No sessions recorded.</div>
+    </div>
+    <div class="report-section">
+      <div class="report-section-hdr">Penalty Record</div>
+      <div id="dp-penalties" style="font-size:9px;color:var(--dm)">No penalties on record.</div>
+    </div>
+  </div>
+</div>
 <!-- HEAD TO HEAD COMPARISON -->
 <div class="mbg" id="m-h2h">
   <div class="modal wide">
@@ -2680,7 +3389,7 @@ if(!FIREBASE_CONFIG.databaseURL){setSyncStatus('offline');return;}
 try{
 firebase.initializeApp(FIREBASE_CONFIG);
 fbDb=firebase.database();
-fbRef=fbDb.ref('nascar_amr_v6');
+fbRef=fbDb.ref(FIREBASE_ROOT);
 // Connection state
 firebase.database().ref('.info/connected').on('value',snap=>{
 fbConnected=snap.val()===true;
@@ -2716,23 +3425,24 @@ if(lbl){lbl.textContent=v.t;lbl.style.color=v.c;}
 function openSetupGuide(){openModal('m-setup');}
 
 function save(){
-// Always write to localStorage as offline backup
-try{localStorage.setItem(SK,JSON.stringify(S));}catch(e){}
-// Debounced write to Firebase (skip if we're currently processing a remote update)
+// Write to lobby-specific localStorage key if in a lobby, otherwise global key
+const storageKey=currentLobbyCode?getLobbyStorageKey(currentLobbyCode):SK;
+try{localStorage.setItem(storageKey,JSON.stringify(S));}catch(e){}
 if(fbRef&&!fbUpdating){
 clearTimeout(fbSaveTimer);
 fbSaveTimer=setTimeout(()=>{
 const payload=JSON.parse(JSON.stringify(S));
-delete payload.pastSessions; // keep local only
+delete payload.pastSessions;
 fbUpdating=true;
-fbRef.set(payload)
-.then(()=>{fbUpdating=false;})
-.catch(e=>{console.warn('Firebase write error:',e);fbUpdating=false;});
+fbRef.set(payload).then(()=>{fbUpdating=false;}).catch(e=>{console.warn('Firebase write error:',e);fbUpdating=false;});
 },300);
 }
 }
 
-function load(){try{const d=localStorage.getItem(SK);if(d)Object.assign(S,JSON.parse(d));}catch(e){}}
+function load(){
+const storageKey=currentLobbyCode?getLobbyStorageKey(currentLobbyCode):SK;
+try{const d=localStorage.getItem(storageKey);if(d)Object.assign(S,JSON.parse(d));}catch(e){}
+}
 
 function migrateState(){
 if(!S.race.flagTimeline)S.race.flagTimeline=[];
@@ -2779,8 +3489,15 @@ document.getElementById('fl-in').placeholder='Lap '+(S.race.lap||0);
 renderDrivers();renderDriverSel();renderFeed();updateCounts();renderProtoPanel();restoreWxStrip();updateLapProgress();updateStageIndicator();renderSessionNotes();renderLapTimes();
 updateTeamRadioDrivers();
 renderDeviceList(['adm-device-list','na-device-list']);
-if(S.devices){}// trigger device count update
+if(S.devices){}
 if(S.cfg.bulkCmd)checkBulkCmd(S.cfg.bulkCmd);
+checkAnnouncements();
+if(S.race&&S.race.weather)updateWeatherVisuals(S.race.weather);
+renderMapPins('trk-svg');
+if(document.getElementById('spec-chat-panel')&&document.getElementById('spec-chat-panel').style.display!=='none')renderSpecChat();
+if(document.getElementById('spec-fans-panel')&&document.getElementById('spec-fans-panel').style.display!=='none')renderFanVotes();
+if(document.getElementById('tv-screen')&&document.getElementById('tv-screen').classList.contains('on'))renderTVMode();
+if(document.getElementById('sb-screen')&&document.getElementById('sb-screen').classList.contains('on'))renderScoreboard();
 // Force refresh check
 if(S.cfg.forceRefreshTs)checkForceRefresh(S.cfg.forceRefreshTs);
 lastRefreshTs=S.cfg.forceRefreshTs||0;
@@ -2973,6 +3690,7 @@ if(tip)tip.innerHTML=tipParts.join('  ·  ');
 function setFlag(flag,silent){
 if(currentRole==='marshal'&&!marshalCanSetFlag(flag)){marshalFlagDeny(flag);return;}
 S.race.flag=flag;
+updateLobbyActivity();
 const cfg=FLAG_CFG[flag]||FLAG_CFG.Green;
 document.getElementById('topbar').style.borderBottomColor=cfg.color;
 const pill=document.getElementById('race-pill');
@@ -3005,6 +3723,8 @@ createFlagGroup(flag,cfg);
 checkProtocolTriggers({type:'flag',value:flag,trigger:'Flag: '+flag});
 const rtype=flag==='Red'||flag==='Red Checkered'?'major':flag==='Yellow'?'warn':'ok';
 addRadio('Race Control. '+flag+' Flag displayed. Lap '+S.race.lap+'.',rtype);
+showScriptPrompt(flag);
+showLowerThird(cfg.icon,'FLAG CHANGE',flag.toUpperCase()+' FLAG — '+cfg.sub,cfg.color,6000);
 checkFlagEscalation(flag);
 // Caution clock: start on yellow/red, stop on green/restart
 const cautionFlags=['Yellow','Red','Pace Lap','Red Checkered','Stage Break','Stage Caution'];
@@ -4003,27 +4723,11 @@ updateAuthorityUI();
 // ══════════════════════════════════════════════
 const SPEC_DELAY_MS=60000;
 function renderSpectatorDash(){
+checkAnnouncements();
 const cfg=FLAG_CFG[S.race.flag]||FLAG_CFG.Green;
-const fb=document.getElementById('spec-flag-big');
-if(fb){fb.style.borderColor=cfg.color;fb.style.background=cfg.color+'12';}
-const fi=document.getElementById('spec-flag-icon');if(fi)fi.textContent=cfg.icon;
-const fl=document.getElementById('spec-flag-lbl');if(fl){fl.textContent=S.race.flag.toUpperCase()+' FLAG';fl.style.color=cfg.color;}
-const fs=document.getElementById('spec-flag-sub');if(fs)fs.textContent=cfg.sub;
-const sl=document.getElementById('spec-lap');if(sl)sl.textContent=S.race.lap>0?'Lap '+S.race.lap:S.session.active?'Pre-Race':'No Session';
-const st=document.getElementById('spec-track');if(st)st.textContent=S.session.trackName||'—';
+renderSpectatorBroadcast(cfg);
 const now=Date.now();
-const inc=document.getElementById('spec-incidents');
-if(inc){
-const visible=S.groups.filter(g=>!g.isFlagLog&&g.severity!=='Critical'&&(now-g.createdAt)>=SPEC_DELAY_MS).sort((a,b)=>b.createdAt-a.createdAt).slice(0,12);
-if(!visible.length){inc.innerHTML='<div style="font-size:9px;color:var(--dm)">No incidents to display yet.</div>';}
-else{inc.innerHTML=visible.map(g=>{const c=TYPE_CLR[g.type]||'#888';return`<div class="spec-inc-row" style="border-left-color:${c}"><div style="display:flex;align-items:center;gap:5px;margin-bottom:3px"><span style="font-size:9px;font-weight:700;color:${c}">${E(g.type)}</span><span class="lcs ${LCS_CLS[g.status]||'lcs-det'}" style="font-size:7px">${g.status}</span><span style="font-size:7px;color:var(--dm);margin-left:auto">Lap ${g.lap||'?'}</span></div><div style="font-size:8px;color:var(--mu)">${E(g.location||'Unknown')}</div></div>`;}).join('');}
-}
-const stand=document.getElementById('spec-standings');
-if(stand){
-const ranked=[...S.drivers].filter(d=>d.totalPoints>0).sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
-if(!ranked.length){stand.innerHTML='<div style="font-size:9px;color:var(--dm)">No points recorded.</div>';}
-else{stand.innerHTML=ranked.map((d,i)=>`<div class="lb-row"><span class="lb-pos" style="color:${i<3?['#f0b429','#94a3b8','#b45309'][i]:'var(--mu)'}">${i+1}.</span><span class="lb-car">#${E(d.carNum)}</span><span class="lb-name">${E(d.name)}</span><span class="lb-pts">${d.totalPoints||0}<span class="lb-pts-earn">pts</span></span></div>`).join('');}
-}
+// renderSpectatorBroadcast handles flag, standings, and incidents
 }
 
 function loginAsRacer(driverId){
@@ -4055,6 +4759,13 @@ const ss=document.getElementById('subrole-screen');if(ss)ss.classList.remove('sh
 const sp=document.getElementById('subrole-pw-screen');if(sp)sp.classList.remove('show');
 const ho=document.getElementById('hub-overlay');if(ho)ho.classList.remove('on');
 const ps=document.getElementById('pub-screen');if(ps)ps.classList.remove('on');
+closeTVMode();closeScoreboard();
+// Return to lobby screen on logout
+currentLobbyCode=null;
+try{sessionStorage.removeItem('nascar_lobby_code');sessionStorage.removeItem('nascar_lobby_name');}catch(e){}
+document.getElementById('lobby-screen').classList.remove('hidden');
+document.getElementById('login-screen').style.display='none';
+renderLobbyList();
 document.getElementById('login-screen').style.display='';
 document.getElementById('login-roles').style.display='';
 document.getElementById('login-pw-screen').classList.remove('show');
@@ -4658,8 +5369,12 @@ function showAnnouncementOverlay(ann){
   const ov=document.getElementById('announce-overlay');
   if(!ov)return;
   const badge=ov.querySelector('.announce-badge');
-  if(badge)badge.textContent=ann.direct?'📡 DIRECT MESSAGE FROM RACE CONTROL':'📢 RACE CONTROL ANNOUNCEMENT';
-  document.getElementById('announce-from').textContent='From: '+ann.sentBy+' · Lap '+(ann.lap||'—')+' · '+ann.flag+' Flag';
+  if(badge){
+    if(ann.sentBy==='Network Administration')badge.textContent='🌐 NETWORK ADMINISTRATION';
+    else if(ann.direct)badge.textContent='📡 DIRECT MESSAGE FROM RACE CONTROL';
+    else badge.textContent='📢 RACE CONTROL ANNOUNCEMENT';
+  }
+  document.getElementById('announce-from').textContent='From: '+(ann.sentBy||'Race Control')+' · Lap '+(ann.lap||'—')+' · '+(ann.flag||'')+' Flag';
   document.getElementById('announce-msg').textContent=ann.text;
   ov.classList.add('on');
 }
@@ -4674,8 +5389,9 @@ function acknowledgeAnnouncement(){
 // RACER DASHBOARD — FULL PROFILE
 // ══════════════════════════════════════════════
 function renderRacerDash(){
-  // Check for new announcements
+  // Check for new announcements and penalty acknowledgments
   checkAnnouncements();
+  checkPenaltyAck();
   const d=S.drivers.find(x=>x.id===currentDriverId);
   const cfg=FLAG_CFG[S.race.flag]||FLAG_CFG.Green;
   // Flag
@@ -4789,6 +5505,7 @@ function renderChampSessionList(){const el=document.getElementById('champ-sess-l
 function toggleChampSession(id){if(champSelectedSessions.has(id))champSelectedSessions.delete(id);else champSelectedSessions.add(id);renderChampSessionList();}
 function selectAllChampSessions(){S.pastSessions.forEach(s=>champSelectedSessions.add(s.id));renderChampSessionList();}
 function renderChampionship(){
+renderStandingsDetail();
 const selected=S.pastSessions.filter(s=>champSelectedSessions.has(s.id));
 if(!selected.length){document.getElementById('champ-detail').innerHTML='<div class="empty">Select at least one session.</div>';return;}
 const driverMap={};
@@ -5195,6 +5912,8 @@ document.body.classList.add('app-ready','role-netadmin');
 lastRefreshTs=S.cfg.forceRefreshTs||0;
 renderNetAdmin();setInterval(renderNetAdmin,3000);
 renderNetAdminSettings();
+renderPendingAccounts();
+setInterval(renderPendingAccounts,30000);
 logAccess('netadmin','login','Network Admin session started');
 }
 
@@ -5452,6 +6171,7 @@ renderScorerDash();
 setInterval(renderScorerDash,5000);
 }
 function renderScorerDash(){
+checkAnnouncements();
 const locked=S.cfg.resultsLocked||false;
 const badge=document.getElementById('sc-lock-badge');
 if(badge){badge.textContent=locked?'🔒 Locked':'🔓 Unlocked';badge.className='lock-badge'+(locked?' locked':'');}
@@ -5624,8 +6344,9 @@ function toggleResultsLock(){
   if(currentlyLocked){
     // RC can always unlock; scorer needs a reason
     if(currentRole==='scorer'){
-      const reason=prompt('Enter reason for unlocking results:');
-      if(!reason)return;
+      // Ask for confirmation via confirm dialog (non-blocking on mobile)
+      const reason='Unlocked by Scorer';
+      if(!confirm('Unlock official results?'))return;
       addRadio('📊 SCORER: Results unlocked — '+reason,'warn');
       logSubRoleActivity('Results unlocked',reason);
     }
@@ -5927,6 +6648,1246 @@ function naBroadcast(){
 }
 
 // ── migrateState additions ──
+// ══════════════════════════════════════════════
+// LOBBY SYSTEM
+// ══════════════════════════════════════════════
+let currentLobbyCode=null;
+let selectedLobbyFormat='sprint';
+
+function selectLobbyFormat(fmt){
+  selectedLobbyFormat=fmt;
+  ['sprint','endurance','championship','practice'].forEach(f=>{
+    const btn=document.getElementById('fmt-'+f);
+    if(btn)btn.classList.toggle('on',f===fmt);
+  });
+}
+
+function generateLobbyCode(){
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let code='';for(let i=0;i<6;i++)code+=chars[Math.floor(Math.random()*chars.length)];
+  return code;
+}
+
+function openLobbyCreate(){
+  document.getElementById('lobby-create-form').classList.add('open');
+  document.getElementById('lobby-session-name').focus();
+}
+function closeLobbyCreate(){
+  document.getElementById('lobby-create-form').classList.remove('open');
+}
+
+function createLobby(){
+  const name=document.getElementById('lobby-session-name').value.trim();
+  const track=document.getElementById('lobby-track-name').value.trim();
+  const laps=parseInt(document.getElementById('lobby-laps').value)||50;
+  const maxDrivers=parseInt(document.getElementById('lobby-max-drivers').value)||16;
+  const password=document.getElementById('lobby-password').value.trim();
+  const hostName=document.getElementById('lobby-host-name').value.trim()||'Race Control';
+  const rulesText=document.getElementById('lobby-rules-text').value.trim();
+  if(!name){toast('Enter a session name','err');return;}
+  const code=generateLobbyCode();
+  const lobbyData={
+    code,name,track:track||'',
+    format:selectedLobbyFormat,
+    laps,maxDrivers,
+    password:password||'',
+    host:hostName,
+    rules:rulesText||'',
+    created:Date.now(),lastActive:Date.now(),
+    status:'waiting',flag:'Green',lap:0,playerCount:0
+  };
+  if(fbDb){
+    fbRef.child('nascar_lobbies/'+code).set(lobbyData).then(()=>{
+      enterLobby(code,name);
+    }).catch(()=>enterLobby(code,name));
+  } else {
+    enterLobby(code,name);
+  }
+}
+
+let _pendingJoinCode=null;let _pendingJoinName=null;
+
+function joinLobbyByCode(){
+  const code=document.getElementById('lobby-join-code').value.trim().toUpperCase();
+  if(code.length<4){toast('Enter a valid session code','err');return;}
+  if(fbDb){
+    fbRef.child('nascar_lobbies/'+code).once('value').then(snap=>{
+      if(!snap.val()){toast('Session not found. Check the code and try again.','err');return;}
+      const d=snap.val();
+      if(d.password){
+        _pendingJoinCode=code;_pendingJoinName=d.name||code;
+        const lbl=document.getElementById('join-pw-session-name');
+        if(lbl)lbl.textContent='"'+E(d.name||code)+'" requires a password.';
+        const err=document.getElementById('join-pw-err');if(err)err.textContent='';
+        const inp=document.getElementById('join-pw-input');if(inp)inp.value='';
+        openModal('m-join-pw');
+        setTimeout(()=>{const inp2=document.getElementById('join-pw-input');if(inp2)inp2.focus();},200);
+      } else {
+        enterLobby(code,d.name||code);
+      }
+    }).catch(()=>enterLobby(code,code));
+  } else {
+    enterLobby(code,code);
+  }
+}
+
+function submitJoinPw(){
+  const inp=document.getElementById('join-pw-input');
+  const errEl=document.getElementById('join-pw-err');
+  const pw=inp?inp.value.trim():'';
+  if(!pw){if(errEl)errEl.textContent='Enter the session password.';return;}
+  if(!_pendingJoinCode||!fbDb){closeModal('m-join-pw');return;}
+  fbRef.child('nascar_lobbies/'+_pendingJoinCode).once('value').then(snap=>{
+    const d=snap.val();
+    if(!d){toast('Session no longer exists','err');closeModal('m-join-pw');return;}
+    if(pw!==d.password){if(errEl)errEl.textContent='Incorrect password.';if(inp){inp.value='';inp.focus();}return;}
+    closeModal('m-join-pw');
+    enterLobby(_pendingJoinCode,_pendingJoinName||_pendingJoinCode);
+    _pendingJoinCode=null;_pendingJoinName=null;
+  }).catch(()=>{if(errEl)errEl.textContent='Connection error.';});
+}
+
+function enterLobby(code,name){
+  currentLobbyCode=code;
+  // Store in sessionStorage so page refresh keeps the lobby
+  try{sessionStorage.setItem('nascar_lobby_code',code);sessionStorage.setItem('nascar_lobby_name',name);}catch(e){}
+  // Update the Firebase root key for this session
+  FIREBASE_ROOT='nascar_amr_v6_'+code;
+  // Show login screen, hide lobby
+  document.getElementById('lobby-screen').classList.add('hidden');
+  document.getElementById('login-screen').style.display='';
+  // Reload state from the lobby-specific Firebase path
+  if(fbDb){
+    load();
+    migrateState();migrateStateExtra();save();
+    initFirebase();
+    renderLoginRaceInfo();renderLoginStatus();
+  }
+  // Show lobby code on login screen
+  const strip=document.getElementById('login-status-strip');
+  if(strip){
+    const existing=document.getElementById('lobby-code-badge');
+    if(!existing){
+      const badge=document.createElement('div');
+      badge.id='lobby-code-badge';
+      badge.style.cssText='font-size:8px;font-weight:700;color:var(--dm);text-align:center;margin-top:4px;letter-spacing:.1em';
+      badge.textContent='Session: '+name+' · Code: '+code;
+      strip.parentNode.insertBefore(badge,strip.nextSibling);
+    }
+  }
+  toast('Joined session: '+code,'ok');
+}
+
+function renderLobbyList(){
+  if(!fbDb){
+    document.getElementById('lobby-empty').textContent='Connect Firebase to see active sessions.';
+    return;
+  }
+  fbRef.child('nascar_lobbies').orderByChild('lastActive').limitToLast(20).once('value').then(snap=>{
+    const el=document.getElementById('lobby-sessions');
+    const empty=document.getElementById('lobby-empty');
+    if(!snap.val()){
+      empty.style.display='';
+      empty.textContent='No active sessions. Create one to get started.';
+      return;
+    }
+    const sessions=[];
+    snap.forEach(child=>sessions.unshift({code:child.key,...child.val()}));
+    // Filter out sessions inactive for 4+ hours
+    const cutoff=Date.now()-4*60*60*1000;
+    const active=sessions.filter(s=>s.permanent||s.lastActive>cutoff);
+    if(!active.length){
+      empty.style.display='';
+      empty.textContent='No active sessions. Create one to get started.';
+      return;
+    }
+    empty.style.display='none';
+    // Remove existing cards
+    el.querySelectorAll('.lobby-session-card').forEach(c=>c.remove());
+    const FORMAT_ICONS={sprint:'🏁',endurance:'⏱',championship:'🏆',practice:'🔧'};
+    active.forEach(s=>{
+      const flagCfg=FLAG_CFG[s.flag]||FLAG_CFG.Green;
+      const isLive=s.status==='active';
+      const fmtIcon=FORMAT_ICONS[s.format]||'🏁';
+      const div=document.createElement('div');
+      div.className='lobby-session-card';
+      div.onclick=()=>{
+        if(s.password){
+          _pendingJoinCode=s.code;_pendingJoinName=s.name||s.code;
+          const lbl=document.getElementById('join-pw-session-name');
+          if(lbl)lbl.textContent='"'+E(s.name||s.code)+'" requires a password.';
+          const err=document.getElementById('join-pw-err');if(err)err.textContent='';
+          const inp=document.getElementById('join-pw-input');if(inp)inp.value='';
+          openModal('m-join-pw');
+          setTimeout(()=>{const i=document.getElementById('join-pw-input');if(i)i.focus();},200);
+        } else {
+          enterLobby(s.code,s.name||s.code);
+        }
+      };
+      div.innerHTML=`
+        <div class="lsc-flag" style="background:${flagCfg.color}18;border:1.5px solid ${flagCfg.color}33">${flagCfg.icon}</div>
+        <div class="lsc-info">
+          <div class="lsc-name">${E(s.name||s.code)}${s.password?' 🔒':''}${s.permanent?' <span class="perm-badge">🏛 PERM</span>':''}</div>
+          <div class="lsc-meta">${s.track?E(s.track)+' · ':''}${fmtIcon} ${s.format||'sprint'}${s.laps?' · '+s.laps+' laps':''}${isLive?' · Lap '+(s.lap||0):''} · ${s.playerCount||0} joined</div>
+          ${s.rules?`<div style="font-size:8px;color:#444;margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:260px">${E(s.rules.slice(0,80))}${s.rules.length>80?'…':''}</div>`:''}
+          <div style="font-size:8px;color:#333;margin-top:1px">Host: ${E(s.host||'Race Control')}</div>
+        </div>
+        <span class="lsc-code">${E(s.code)}</span>
+        <span class="lsc-status ${isLive?'live':'waiting'}">${isLive?'LIVE':'WAITING'}</span>`;
+      el.appendChild(div);
+    });
+  }).catch(()=>{
+    document.getElementById('lobby-empty').textContent='Could not load sessions. Check your connection.';
+  });
+}
+
+function updateLobbyActivity(){
+  if(!currentLobbyCode||!fbDb)return;
+  const flagVal=S.race?S.race.flag:'Green';
+  const lapVal=S.race?S.race.lap:0;
+  const statusVal=S.session&&S.session.active?'active':'waiting';
+  fbRef.child('nascar_lobbies/'+currentLobbyCode).update({
+    lastActive:Date.now(),flag:flagVal,lap:lapVal,status:statusVal
+  }).catch(()=>{});
+}
+
+// Allow lobby root key override
+let FIREBASE_ROOT='nascar_amr_v6';
+
+// ══════════════════════════════════════════════
+// PENALTY ACKNOWLEDGMENT
+// ══════════════════════════════════════════════
+let pendingPenaltyAck=null;
+
+function showPenaltyAck(penalty){
+  pendingPenaltyAck=penalty;
+  const type=document.getElementById('pen-ack-type');
+  const desc=document.getElementById('pen-ack-desc');
+  const reason=document.getElementById('pen-ack-reason');
+  if(type)type.textContent=penalty.type||'Penalty Issued';
+  if(desc)desc.textContent='Race Control has issued you a penalty. You must acknowledge receipt before continuing.';
+  if(reason)reason.textContent=penalty.reason?'Reason: '+penalty.reason:'';
+  const ov=document.getElementById('pen-ack-overlay');
+  if(ov)ov.classList.add('on');
+}
+function acknowledgePenalty(){
+  const ov=document.getElementById('pen-ack-overlay');
+  if(ov)ov.classList.remove('on');
+  // Mark as acknowledged in state
+  if(pendingPenaltyAck&&currentDriverId){
+    const d=S.drivers.find(x=>x.id===currentDriverId);
+    if(d&&d.penalties){
+      const pen=d.penalties.find(p=>p.id===pendingPenaltyAck.id);
+      if(pen)pen.acknowledged=true;
+    }
+    save();
+  }
+  pendingPenaltyAck=null;
+  toast('Penalty acknowledged','ok');
+}
+
+// Check for unacknowledged penalties (called from racer render)
+function checkPenaltyAck(){
+  if(currentRole!=='racer'||!currentDriverId)return;
+  const d=S.drivers.find(x=>x.id===currentDriverId);
+  if(!d||!d.penalties)return;
+  const unacked=d.penalties.find(p=>!p.served&&!p.acknowledged&&p.ts>0);
+  if(unacked&&(!pendingPenaltyAck||pendingPenaltyAck.id!==unacked.id)){
+    showPenaltyAck(unacked);
+  }
+}
+
+// ══════════════════════════════════════════════
+// SPECTATOR BROADCAST RENDER REVAMP
+// ══════════════════════════════════════════════
+function renderSpectatorBroadcast(cfg){
+  // Flag hero
+  const hero=document.getElementById('spec-flag-hero');
+  if(hero){hero.style.borderBottomColor=cfg.color;hero.style.background=cfg.color+'06';}
+  const fi=document.getElementById('spec-flag-icon');if(fi)fi.textContent=cfg.icon;
+  const fl=document.getElementById('spec-flag-lbl');if(fl){fl.textContent=S.race.flag.toUpperCase()+' FLAG';fl.style.color=cfg.color;}
+  const fs=document.getElementById('spec-flag-sub');if(fs)fs.textContent=cfg.sub;
+  const sl=document.getElementById('spec-lap');if(sl)sl.textContent=S.session.active?'Lap '+S.race.lap:'Pre-Race';
+  const st=document.getElementById('spec-track');if(st)st.textContent=E(S.session.trackName||'');
+  const sc=document.getElementById('spec-session-chip');if(sc&&currentLobbyCode)sc.textContent='· Session '+currentLobbyCode;
+  // Standings
+  const standEl=document.getElementById('spec-standings');
+  if(standEl){
+    const ranked=[...S.drivers].filter(d=>d.totalPoints>0).sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
+    standEl.innerHTML=ranked.length?ranked.map((d,i)=>{
+      const pc=i===0?'p1':i===1?'p2':i===2?'p3':'';
+      return`<div class="spec-stand-row"><span class="spec-stand-pos ${pc}">${i+1}</span><span class="pub-car" style="font-size:9px">#${E(d.carNum)}</span><span class="spec-stand-name">${E(d.name)}</span><span class="spec-stand-pts">${d.totalPoints||0}</span></div>`;
+    }).join(''):'<div style="color:#333;font-size:10px;padding:8px 0">No standings yet.</div>';
+    // Ticker standings update
+    const ticker=document.getElementById('spec-ticker-standings');
+    if(ticker&&ranked.length){ticker.textContent='Standings: '+ranked.slice(0,3).map((d,i)=>`P${i+1} #${d.carNum} ${d.name} ${d.totalPoints}pts`).join(' · ');}
+  }
+  // Incidents (non-critical, 1-min delay)
+  const incEl=document.getElementById('spec-incidents');
+  if(incEl){
+    const now=Date.now();
+    const vis=S.groups.filter(g=>!g.isFlagLog&&g.severity!=='Critical'&&(now-g.createdAt)>=60000).slice(0,10);
+    incEl.innerHTML=vis.length?vis.map(g=>{
+      const c=TYPE_CLR[g.type]||'#444';
+      return`<div class="spec-inc-card" style="border-left-color:${c}"><div class="spec-inc-type" style="color:${c}">${E(g.type)}</div><div class="spec-inc-meta">Lap ${g.lap||'?'} · ${E(g.location||'Unknown')} · ${g.status}</div></div>`;
+    }).join(''):'<div style="color:#333;font-size:10px;padding:8px 0">No incidents yet.</div>';
+  }
+}
+
+// ══════════════════════════════════════════════
+// POINTS STANDINGS DETAIL (stage breakdown)
+// ══════════════════════════════════════════════
+function renderStandingsDetail(){
+  // Called from championship tab — adds stage breakdown rows
+  const lb=document.getElementById('lb-body');if(!lb)return;
+  const ranked=[...S.drivers].sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
+  lb.innerHTML=ranked.map((d,i)=>{
+    const pending=(d.penalties||[]).filter(p=>!p.served).length;
+    const stageTotal=(d.stagePoints||[]).filter(s=>s.stage!=='Race Finish').reduce((sum,s)=>sum+(s.points||0),0);
+    const racePoints=(d.totalPoints||0)-stageTotal;
+    const pc=i===0?'p1':i===1?'p2':i===2?'p3':'';
+    return`<div class="lb-row" style="padding:6px 0;border-bottom:1px solid var(--bd)">
+      <span class="lb-pos ${pc}" style="color:${pc==='p1'?'#f0b429':pc==='p2'?'#94a3b8':pc==='p3'?'#b45309':'var(--mu)'}">${i+1}.</span>
+      <span class="lb-car">#${E(d.carNum)}</span>
+      <span class="lb-name" style="flex:1">${E(d.name)}</span>
+      <div style="text-align:right">
+        <span class="lb-pts">${d.totalPoints||0}<span class="lb-pts-earn">pts</span></span>
+        <div style="font-size:7px;color:var(--dm);margin-top:1px">Stage: ${stageTotal}pts · Race: ${racePoints}pts${pending?' · ⚠'+pending+' pen':''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ══════════════════════════════════════════════
+// UPDATED createLobby — all fields + data isolation
+// ══════════════════════════════════════════════
+// (createLobby already defined above — patch it to include new fields)
+const _origCreateLobby=createLobby;
+window.createLobby=function createLobby(){
+  const name=document.getElementById('lobby-session-name').value.trim();
+  const track=document.getElementById('lobby-track-name').value.trim();
+  const laps=parseInt(document.getElementById('lobby-laps').value)||50;
+  const maxDrivers=parseInt(document.getElementById('lobby-max-drivers').value)||16;
+  const password=document.getElementById('lobby-password').value.trim();
+  const hostName=document.getElementById('lobby-host-name').value.trim()||'Race Control';
+  const rulesText=document.getElementById('lobby-rules-text').value.trim();
+  if(!name){toast('Enter a session name','err');return;}
+  const code=generateLobbyCode();
+  const pwData=collectTeamPasswords();
+  const lobbyData={
+    code,name,track:track||'',format:selectedLobbyFormat,laps,maxDrivers,
+    password:password||'',host:hostName,rules:rulesText||'',
+    teams:pwData.teams,cars:pwData.cars,crewPw:pwData.crewPw,
+    hostPw:pwData.hostPw,
+    permanent:pwData.permanent,permanentPw:pwData.permanentPw,
+    created:Date.now(),lastActive:Date.now(),status:'waiting',flag:'Green',lap:0,playerCount:0
+  };
+  // Pre-configure S state with lobby settings
+  S.race.totalLaps=laps;if(rulesText)S.rulebook=rulesText;
+  if(fbDb){
+    fbRef.child('nascar_lobbies/'+code).set(lobbyData).then(()=>enterLobby(code,name,lobbyData)).catch(()=>enterLobby(code,name,lobbyData));
+  } else {
+    enterLobby(code,name,lobbyData);
+  }
+};
+
+// ══════════════════════════════════════════════
+// UPDATED enterLobby — data isolation + host panel access
+// ══════════════════════════════════════════════
+const _origEnterLobby=enterLobby;
+window.enterLobby=function enterLobby(code,name,lobbyData){
+  currentLobbyCode=code;currentLobbyData=lobbyData||null;
+  try{sessionStorage.setItem('nascar_lobby_code',code);sessionStorage.setItem('nascar_lobby_name',name);}catch(e){}
+  // Per-lobby data isolation — use lobby-specific storage key AND Firebase path
+  FIREBASE_ROOT='nascar_amr_v6_'+code;
+  // Load lobby-specific state (never carry over from another lobby)
+  loadLobbyState(code);
+  migrateState();migrateStateExtra();saveLobbyState();
+  document.getElementById('lobby-screen').classList.add('hidden');
+  document.getElementById('login-screen').style.display='';
+  if(fbDb)initFirebase();
+  renderLoginRaceInfo();renderLoginStatus();
+  // Show session chip on login screen
+  const existing=document.getElementById('lobby-code-badge');
+  const parent=document.getElementById('login-status-strip');
+  if(parent&&!existing){
+    const badge=document.createElement('div');badge.id='lobby-code-badge';
+    badge.style.cssText='font-size:8px;font-weight:700;color:var(--dm);text-align:center;margin-top:4px;letter-spacing:.1em;cursor:pointer';
+    badge.textContent='Session: '+name+' · Code: '+code+(lobbyData&&lobbyData.permanent?' 🏛':'');
+    parent.parentNode.insertBefore(badge,parent.nextSibling);
+  } else if(existing){
+    existing.textContent='Session: '+name+' · Code: '+code+(lobbyData&&lobbyData.permanent?' 🏛':'');
+  }
+  // If this was created by this user and has a hostPw, show Host panel access hint on login
+  if(lobbyData&&lobbyData.hostPw){
+    const hostHint=document.getElementById('lobby-host-hint');
+    if(!hostHint&&parent){
+      const hint=document.createElement('div');hint.id='lobby-host-hint';
+      hint.style.cssText='font-size:8px;color:#f0b429;text-align:center;margin-top:3px;cursor:pointer';
+      hint.textContent='🏁 Host? Access your management panel →';
+      hint.onclick=()=>promptLobbyHost();
+      parent.parentNode.insertBefore(hint,parent.nextSibling);
+    }
+  }
+  toast('Joined: '+name+' ('+code+')','ok');
+};
+
+function promptLobbyHost(){
+  if(!currentLobbyCode){toast('No lobby selected','err');return;}
+  const errEl=document.getElementById('lhost-pw-err');
+  const inp=document.getElementById('lhost-pw-input');
+  if(errEl)errEl.textContent='';
+  if(inp)inp.value='';
+  openModal('m-lhost-pw');
+  setTimeout(()=>{if(inp)inp.focus();},200);
+}
+
+function submitLhostPw(){
+  const inp=document.getElementById('lhost-pw-input');
+  const errEl=document.getElementById('lhost-pw-err');
+  const pw=inp?inp.value.trim():'';
+  if(!pw){if(errEl)errEl.textContent='Enter the host password.';return;}
+  if(!fbDb){if(errEl)errEl.textContent='Firebase not connected.';return;}
+  fbRef.child('nascar_lobbies/'+currentLobbyCode).once('value').then(snap=>{
+    const d=snap.val();
+    if(!d||!d.hostPw){if(errEl)errEl.textContent='No host password set for this lobby.';return;}
+    if(pw!==d.hostPw){if(errEl)errEl.textContent='Incorrect password.';if(inp){inp.value='';inp.focus();}return;}
+    closeModal('m-lhost-pw');
+    if(inp)inp.value='';
+    openLobbyHostScreen();
+  }).catch(()=>{if(errEl)errEl.textContent='Connection error. Try again.';});
+}
+
+// ══════════════════════════════════════════════
+// TEAM PASSWORD UI HELPERS
+// ══════════════════════════════════════════════
+function addTeamPwRow(name,pw){
+  name=name||'';pw=pw||'';
+  const list=document.getElementById('team-pw-list');if(!list)return;
+  const row=document.createElement('div');row.className='team-pw-row';
+  row.innerHTML='<input class="mi" placeholder="Team name e.g. Alpha" value="'+E(name)+'" style="font-size:10px"/><input class="mi" type="text" placeholder="Password" value="'+E(pw)+'" style="font-size:10px"/><button class="team-pw-del" onclick="this.parentNode.remove()">✕</button>';
+  list.appendChild(row);
+}
+function addCarPwRow(car,pw){
+  car=car||'';pw=pw||'';
+  const list=document.getElementById('car-pw-list');if(!list)return;
+  const row=document.createElement('div');row.className='team-pw-row';
+  row.innerHTML='<input class="mi" placeholder="Car # e.g. 12" value="'+E(car)+'" style="font-size:10px"/><input class="mi" type="text" placeholder="Password" value="'+E(pw)+'" style="font-size:10px"/><button class="team-pw-del" onclick="this.parentNode.remove()">✕</button>';
+  list.appendChild(row);
+}
+function togglePermanentFields(on){
+  const row=document.getElementById('perm-pw-row');if(row)row.style.display=on?'block':'none';
+}
+function collectTeamPasswords(){
+  const teams={};
+  document.querySelectorAll('#team-pw-list .team-pw-row').forEach(row=>{
+    const inputs=row.querySelectorAll('input');
+    const n=inputs[0]?inputs[0].value.trim():'';const p=inputs[1]?inputs[1].value.trim():'';
+    if(n&&p)teams[n]=p;
+  });
+  const cars={};
+  document.querySelectorAll('#car-pw-list .team-pw-row').forEach(row=>{
+    const inputs=row.querySelectorAll('input');
+    const c=inputs[0]?inputs[0].value.trim():'';const p=inputs[1]?inputs[1].value.trim():'';
+    if(c&&p)cars[c]=p;
+  });
+  const crew=document.getElementById('lobby-crew-pw');
+  const hostPw=document.getElementById('lobby-host-pw');
+  const permEl=document.getElementById('lobby-permanent');
+  const permPwEl=document.getElementById('lobby-perm-pw');
+  return{teams,cars,crewPw:crew?crew.value.trim():'',hostPw:hostPw?hostPw.value.trim():'',permanent:permEl?permEl.checked:false,permanentPw:permPwEl?permPwEl.value.trim():''};
+}
+
+// ══════════════════════════════════════════════
+// DATA ISOLATION
+// ══════════════════════════════════════════════
+function getLobbyStorageKey(code){return 'nascar_lobby_'+code;}
+function loadLobbyState(code){
+  const key=getLobbyStorageKey(code);
+  try{const saved=localStorage.getItem(key);if(saved){Object.assign(S,JSON.parse(saved));return;}}catch(e){}
+  resetState();
+}
+function resetState(){
+  S.groups=[];S.pastSessions=[];S.drivers=[];S.announcements=[];S.sessionNotes=[];
+  S.race={flag:'Green',lap:0,flagTimeline:[],greenLaps:0,cautionLaps:0,weather:'Clear',weatherLog:[],totalLaps:50,stages:[],currentStage:0,completedStages:[],restartOrder:[],pitSpeedLimit:55,lapTimes:[],cautionStart:null};
+  S.session={active:false,start:null,trackName:'',trackId:null};
+  S.polls=[];S.stewardDecisions=[];S.teamRadio=[];S.schedule=[];S.commentary=[];
+  S.rulebook='';S.devices={};S.accessLog=[];S.racerForms=[];S.appeals=[];
+  S.inspResults={};S.scorerNotes=[];S.punishmentLog=[];
+}
+function saveLobbyState(){
+  if(!currentLobbyCode)return;
+  try{localStorage.setItem(getLobbyStorageKey(currentLobbyCode),JSON.stringify(S));}catch(e){}
+}
+
+// ══════════════════════════════════════════════
+// LOBBY HOST PANEL
+// ══════════════════════════════════════════════
+let currentLobbyData=null;
+function openLobbyHostScreen(){
+  const screen=document.getElementById('lhost-screen');if(!screen)return;
+  screen.classList.add('on');
+  if(!fbDb||!currentLobbyCode)return;
+  fbRef.child('nascar_lobbies/'+currentLobbyCode).once('value').then(snap=>{
+    const d=snap.val();if(!d)return;currentLobbyData=d;
+    const lbl=document.getElementById('lhost-session-label');if(lbl)lbl.textContent=d.name+' · '+d.code;
+    const n=document.getElementById('lhost-name');if(n)n.value=d.name||'';
+    const t=document.getElementById('lhost-track');if(t)t.value=d.track||'';
+    const l=document.getElementById('lhost-laps');if(l)l.value=d.laps||50;
+    const m=document.getElementById('lhost-max-drivers');if(m)m.value=d.maxDrivers||16;
+    const r=document.getElementById('lhost-rules');if(r)r.value=d.rules||'';
+    renderLhostPasswords(d);renderLhostPlayers(d);renderLhostPunishments();
+  });
+}
+function closeLobbyHostScreen(){const s=document.getElementById('lhost-screen');if(s)s.classList.remove('on');}
+function saveLobbyHostSettings(){
+  if(!currentLobbyCode||!fbDb){toast('Not connected','err');return;}
+  const updates={name:document.getElementById('lhost-name').value.trim()||currentLobbyData.name,track:document.getElementById('lhost-track').value.trim(),laps:parseInt(document.getElementById('lhost-laps').value)||50,maxDrivers:parseInt(document.getElementById('lhost-max-drivers').value)||16,rules:document.getElementById('lhost-rules').value.trim(),lastActive:Date.now()};
+  fbRef.child('nascar_lobbies/'+currentLobbyCode).update(updates).then(()=>toast('Settings saved','ok')).catch(()=>toast('Save failed','err'));
+}
+function renderLhostPasswords(d){
+  const el=document.getElementById('lhost-pw-list');if(!el)return;
+  const teams=d.teams||{};const cars=d.cars||{};const crew=d.crewPw||'';
+  let html='';
+  if(Object.keys(teams).length){html+='<div style="font-size:8px;font-weight:700;color:#06b6d4;margin-bottom:4px">Teams</div>';Object.entries(teams).forEach(([n,p])=>{html+=`<div style="display:flex;gap:8px;padding:3px 0;font-size:9px"><span style="flex:1">${E(n)}</span><span style="font-family:monospace;color:var(--dm)">${E(p)}</span></div>`;});}
+  if(Object.keys(cars).length){html+='<div style="font-size:8px;font-weight:700;color:#06b6d4;margin:8px 0 4px">Car Locks</div>';Object.entries(cars).forEach(([c,p])=>{html+=`<div style="display:flex;gap:8px;padding:3px 0;font-size:9px"><span style="flex:1">#${E(c)}</span><span style="font-family:monospace;color:var(--dm)">${E(p)}</span></div>`;});}
+  if(crew){html+=`<div style="font-size:8px;font-weight:700;color:#06b6d4;margin:8px 0 4px">Crew Password</div><div style="font-family:monospace;font-size:9px;color:var(--dm)">${E(crew)}</div>`;}
+  el.innerHTML=html||'<div style="font-size:9px;color:var(--dm)">No passwords configured.</div>';
+}
+function renderLhostPlayers(d){
+  const el=document.getElementById('lhost-player-list');if(!el)return;
+  const devArr=Object.values(S.devices||{}).filter(x=>x.lastSeen&&Date.now()-x.lastSeen<60000);
+  const count=document.getElementById('lhost-player-count');if(count)count.textContent=devArr.length;
+  const roleColors={rc:'#f0b429',marshal:'#06b6d4',racer:'#22c55e',spectator:'#6366f1',scorer:'#f97316'};
+  el.innerHTML=devArr.length?devArr.map(d=>{const c=roleColors[d.role]||'#888';return`<div class="lhost-player-row"><span style="font-size:8px;font-weight:800;color:${c}">${d.role.toUpperCase()}</span><span style="flex:1;font-size:8px;color:var(--mu)">${d.subRole||''}</span><span style="font-size:7px;color:var(--dm);font-family:monospace">${d.id.slice(-6)}</span><button class="lhost-kick-btn" onclick="lhostKickDevice('${d.id}')">Kick</button></div>`;}).join(''):'<div style="font-size:9px;color:var(--dm)">No players connected.</div>';
+}
+function lhostKickDevice(deviceId){if(!fbDb)return;fbRef.child('deviceCmd/'+deviceId).set({action:'logout',ts:Date.now()}).then(()=>toast('Kicked','ok'));}
+function lhostStartSession(){if(!S.session.active){S.session.active=true;S.session.start=Date.now();save();updateLobbyActivity();toast('Session started','ok');}else toast('Session already active','warn');}
+function lhostEndSession(){if(S.session.active){S.session.active=false;save();updateLobbyActivity();toast('Session ended','ok');}else toast('No active session','warn');}
+function lhostBroadcast(){openModal('m-lhost-broadcast');}
+function submitLhostBroadcast(){
+  const msg=document.getElementById('lhost-broadcast-msg');if(!msg||!msg.value.trim()){toast('Enter message','err');return;}
+  if(!S.announcements)S.announcements=[];
+  S.announcements.push({id:uid(),text:msg.value.trim(),ts:Date.now(),lap:S.race?S.race.lap:0,flag:S.race?S.race.flag:'Green',sentBy:'Lobby Host',naTarget:'all',direct:false});
+  msg.value='';save();closeModal('m-lhost-broadcast');toast('Broadcast sent','ok');
+}
+function saveLobbyPasswords(){toast('Passwords are set at lobby creation — edit via lobby settings','warn');}
+function openLhostPunishModal(){openModal('m-lhost-punish');}
+function submitLhostPunish(){
+  const driver=document.getElementById('lp-driver').value.trim();
+  const type=document.getElementById('lp-type').value;
+  const reason=document.getElementById('lp-reason').value.trim();
+  if(!driver||!reason){toast('Fill in driver and reason','err');return;}
+  const entry={id:uid(),driver,type,reason,ts:Date.now(),time:nowT(),lobby:currentLobbyCode||'unknown',issuedBy:'Lobby Host'};
+  if(fbRef)fbRef.child('nascar_punishment_log/'+entry.id).set(entry).catch(()=>{});
+  if(!S.punishmentLog)S.punishmentLog=[];
+  S.punishmentLog.unshift(entry);save();
+  closeModal('m-lhost-punish');renderLhostPunishments();toast('Punishment issued','ok');
+  if(!S.announcements)S.announcements=[];
+  S.announcements.push({id:uid(),text:'⚠ PENALTY: '+driver+' — '+type+'. '+reason,ts:Date.now(),lap:S.race?S.race.lap:0,flag:S.race?S.race.flag:'Green',sentBy:'Lobby Host',naTarget:'all',direct:false});
+  save();
+}
+function renderLhostPunishments(){
+  const el=document.getElementById('lhost-punish-list');if(!el)return;
+  const list=S.punishmentLog||[];
+  if(!list.length){el.innerHTML='<div style="font-size:9px;color:var(--dm)">No punishments issued.</div>';return;}
+  el.innerHTML=list.slice(0,20).map(p=>`<div class="punish-row"><div class="punish-row-hdr"><span class="punish-type">${E(p.type)}</span><span style="font-size:9px;font-weight:700">${E(p.driver)}</span><span style="font-size:7px;color:var(--dm);margin-left:auto">${E(p.time)}</span></div><div class="punish-detail">${E(p.reason)}</div></div>`).join('');
+}
+
+// ══════════════════════════════════════════════
+// LOBBY NET ADMIN
+// ══════════════════════════════════════════════
+function openLobbyNetAdmin(){
+  const errEl=document.getElementById('lna-pw-err');
+  const inp=document.getElementById('lna-pw-input');
+  if(errEl)errEl.textContent='';
+  if(inp)inp.value='';
+  openModal('m-lna-pw');
+  setTimeout(()=>{if(inp)inp.focus();},200);
+}
+
+function submitLnaPw(){
+  const inp=document.getElementById('lna-pw-input');
+  const errEl=document.getElementById('lna-pw-err');
+  const pw=inp?inp.value.trim():'';
+  if(!pw){if(errEl)errEl.textContent='Enter the password.';return;}
+  const proceed=()=>{
+    closeModal('m-lna-pw');
+    if(inp)inp.value='';
+    const s=document.getElementById('lna-screen');
+    if(s){s.classList.add('on');renderLnaLobbies();renderLnaPunishLog();}
+  };
+  const fail=()=>{if(errEl)errEl.textContent='Incorrect password.';if(inp){inp.value='';inp.focus();}};
+  if(fbDb){
+    firebase.database().ref('nascar_global_cfg/netAdminPassword').once('value').then(snap=>{
+      const globalPw=snap.val()||'ADMIN2026';
+      if(pw===globalPw)proceed(); else fail();
+    }).catch(()=>{
+      // Firebase read failed — fall back to in-memory or default
+      const stored=(S.cfg&&S.cfg.netAdminPassword)||'ADMIN2026';
+      if(pw===stored)proceed(); else fail();
+    });
+  } else {
+    const stored=(S.cfg&&S.cfg.netAdminPassword)||'ADMIN2026';
+    if(pw===stored)proceed(); else fail();
+  }
+}
+function closeLobbyNetAdmin(){const s=document.getElementById('lna-screen');if(s)s.classList.remove('on');}
+function renderLnaLobbies(){
+  const el=document.getElementById('lna-lobby-list');if(!el)return;
+  if(!fbDb){el.innerHTML='<div style="font-size:9px;color:#333;text-align:center;padding:20px">Firebase not connected.</div>';return;}
+  fbRef.child('nascar_lobbies').once('value').then(snap=>{
+    if(!snap.val()){el.innerHTML='<div style="font-size:9px;color:#333;padding:12px 0">No active lobbies.</div>';return;}
+    const lobbies=[];snap.forEach(c=>lobbies.unshift({code:c.key,...c.val()}));
+    const FORMAT_ICONS={sprint:'🏁',endurance:'⏱',championship:'🏆',practice:'🔧'};
+    el.innerHTML=lobbies.map(l=>{
+      const isLive=l.status==='active';const isPerm=l.permanent;
+      const flagCfg=FLAG_CFG[l.flag]||FLAG_CFG.Green;
+      return`<div class="lna-lobby-card"><div class="lna-lobby-hdr"><span style="font-size:16px">${flagCfg.icon}</span><div class="lna-lobby-name">${E(l.name||l.code)}${isPerm?' <span class="perm-badge">🏛 PERM</span>':''}</div><span class="lna-lobby-code">${E(l.code)}</span><span style="font-size:7px;font-weight:800;padding:2px 6px;border-radius:3px;${isLive?'background:rgba(34,197,94,.1);color:#22c55e':'background:rgba(240,180,41,.08);color:#f0b429'}">${isLive?'LIVE':'WAITING'}</span></div><div style="font-size:8px;color:#444;margin-bottom:8px">${l.track?E(l.track)+' · ':''}${FORMAT_ICONS[l.format]||'🏁'} ${l.format||'sprint'} · ${l.laps||50} laps · ${l.playerCount||0} players · Host: ${E(l.host||'—')}</div><div style="display:flex;gap:5px;flex-wrap:wrap"><button class="lna-action-btn" style="background:#6366f1;color:#fff" onclick="lnaViewLobby('${l.code}')">View</button><button class="lna-action-btn" style="background:#f0b429;color:#000" onclick="lnaKickAll('${l.code}')">Kick All</button><button class="lna-action-btn" style="background:#e24b4a;color:#fff" onclick="lnaShutdown('${l.code}','${E(l.name||l.code)}')">Shutdown</button>${isPerm?`<button class="lna-action-btn" style="background:transparent;border:1px solid #333;color:#555" onclick="lnaRevokePerm('${l.code}')">Revoke Perm</button>`:`<button class="lna-action-btn" style="background:transparent;border:1px solid #333;color:#555" onclick="lnaMakePerm('${l.code}')">Make Perm</button>`}</div></div>`;
+    }).join('');
+  }).catch(()=>{el.innerHTML='<div style="color:#e24b4a;font-size:9px;padding:12px">Could not load lobbies.</div>';});
+}
+function lnaViewLobby(code){enterLobby(code,'[Net Admin View]');closeLobbyNetAdmin();}
+function lnaKickAll(code){
+  if(!confirm('Kick all users from lobby '+code+'?'))return;
+  if(!fbDb)return;
+  fbRef.child('nascar_amr_v6_'+code+'/cfg').once('value').then(snap=>{
+    fbRef.child('nascar_amr_v6_'+code+'/cfg').update({bulkCmd:{action:'logout',targetRole:'all',ts:Date.now()}}).then(()=>toast('All kicked from '+code,'ok'));
+  });
+}
+function lnaShutdown(code,name){
+  if(!confirm('Shut down lobby "'+name+'"?'))return;
+  if(!fbDb)return;
+  lnaKickAll(code);
+  setTimeout(()=>fbRef.child('nascar_lobbies/'+code).remove().then(()=>{toast('Lobby shut down','ok');renderLnaLobbies();}),1000);
+}
+function lnaMakePerm(code){if(!fbDb)return;fbRef.child('nascar_lobbies/'+code).update({permanent:true}).then(()=>{toast('Made permanent','ok');renderLnaLobbies();});}
+function lnaRevokePerm(code){if(!fbDb)return;fbRef.child('nascar_lobbies/'+code).update({permanent:false}).then(()=>{toast('Permanent revoked','ok');renderLnaLobbies();});}
+function lnaBroadcastAll(){openModal('m-lna-broadcast');}
+function submitLnaBroadcast(){
+  const msg=document.getElementById('lna-broadcast-msg');if(!msg||!msg.value.trim()){toast('Enter message','err');return;}
+  if(!fbDb){toast('Firebase not connected','err');return;}
+  fbRef.child('nascar_global_broadcast').push({text:msg.value.trim(),ts:Date.now(),sentBy:'Network Administration'}).then(()=>{toast('Broadcast sent','ok');msg.value='';closeModal('m-lna-broadcast');});
+}
+function renderLnaPunishLog(){
+  const el=document.getElementById('lna-punish-log');if(!el)return;
+  if(!fbDb){el.innerHTML='<div style="font-size:9px;color:#333">Firebase not connected.</div>';return;}
+  fbRef.child('nascar_punishment_log').limitToLast(30).once('value').then(snap=>{
+    if(!snap.val()){el.innerHTML='<div style="font-size:9px;color:#333;padding:8px 0">No punishments recorded.</div>';return;}
+    const list=[];snap.forEach(c=>list.unshift(c.val()));
+    el.innerHTML=list.map(p=>`<div class="punish-row" style="background:#0d0d0d;border-color:#1a1a1a"><div class="punish-row-hdr"><span class="punish-type">${E(p.type)}</span><span style="font-size:9px;font-weight:700;color:#ccc">${E(p.driver)}</span><span style="font-size:7px;color:#333;margin-left:auto">${E(p.lobby||'?')} · ${E(p.time)}</span></div><div class="punish-detail" style="color:#444">${E(p.reason)}</div></div>`).join('');
+  });
+}
+
+// ══════════════════════════════════════════════
+// NAME ENTRY (replaces full account system)
+// ══════════════════════════════════════════════
+let currentAccount=null; // {name}
+
+function initAccountSystem(){
+  // Check sessionStorage for saved name
+  try{
+    const saved=sessionStorage.getItem('nascar_display_name');
+    if(saved){currentAccount={name:saved};skipAccountScreen();return;}
+  }catch(e){}
+  // Show name entry screen
+  document.getElementById('acct-screen').classList.remove('hidden');
+  setTimeout(()=>{const el=document.getElementById('acct-si-name');if(el)el.focus();},200);
+}
+
+function submitSignIn(){
+  const nameEl=document.getElementById('acct-si-name');
+  const errEl=document.getElementById('acct-signin-err');
+  const name=nameEl?nameEl.value.trim():'';
+  if(!name){if(errEl)errEl.textContent='Please enter your name.';return;}
+  currentAccount={name};
+  try{sessionStorage.setItem('nascar_display_name',name);}catch(e){}
+  skipAccountScreen();
+}
+
+function skipAccountScreen(){
+  document.getElementById('acct-screen').classList.add('hidden');
+  // Show name on lobby screen
+  if(currentAccount){
+    const sub=document.querySelector('.lobby-sub');
+    if(sub)sub.textContent='Welcome, '+currentAccount.name;
+  }
+}
+
+// Append name to access log entries
+function renderPendingAccounts(){
+  const el=document.getElementById('na-pending-accounts');
+  if(el)el.innerHTML='<div style="font-size:9px;color:var(--dm)">Account system removed — users log in by name only.</div>';
+}
+function approveAccount(){}
+function denyAccount(){}
+
+// ══════════════════════════════════════════════
+// TRACK MAP — INCIDENT PINS
+// ══════════════════════════════════════════════
+let pendingMapPin=null; // {x, y} in SVG coordinates (0-400, 0-220)
+
+function openMapPinSelector(){
+  // Copy current track SVG into pin map
+  const srcSvg=document.getElementById('trk-svg');
+  const pinSvg=document.getElementById('pin-map-svg');
+  if(srcSvg&&pinSvg)pinSvg.innerHTML=srcSvg.innerHTML;
+  // Draw existing pins
+  renderMapPins('pin-map-svg');
+  // Set up tap handler
+  const wrap=document.getElementById('pin-map-wrap');
+  if(wrap){
+    wrap.onclick=null;
+    wrap.onclick=function(e){
+      const rect=wrap.getBoundingClientRect();
+      const svgW=400,svgH=220;
+      const rx=(e.clientX-rect.left)/rect.width;
+      const ry=(e.clientY-rect.top)/rect.height;
+      const x=Math.round(rx*svgW);
+      const y=Math.round(ry*svgH);
+      pendingMapPin={x,y};
+      // Move cursor dot
+      const cur=document.getElementById('pin-cursor');
+      if(cur){cur.style.display='block';cur.style.left=(rx*100)+'%';cur.style.top=(ry*100)+'%';}
+      const lbl=document.getElementById('pin-coords-label');
+      if(lbl)lbl.textContent='Pin set at sector '+(x<133?1:x<267?2:3)+' (tap to adjust)';
+    };
+  }
+  openModal('m-map-pin');
+}
+function clearMapPin(){
+  pendingMapPin=null;
+  const cur=document.getElementById('pin-cursor');if(cur)cur.style.display='none';
+  const lbl=document.getElementById('pin-coords-label');if(lbl)lbl.textContent='No pin set';
+}
+function confirmMapPin(){
+  const xEl=document.getElementById('map-pin-x');
+  const yEl=document.getElementById('map-pin-y');
+  const lbl=document.getElementById('map-pin-label');
+  if(pendingMapPin){
+    if(xEl)xEl.value=pendingMapPin.x;
+    if(yEl)yEl.value=pendingMapPin.y;
+    if(lbl)lbl.textContent='📍 Pin set — Sector '+(pendingMapPin.x<133?1:pendingMapPin.x<267?2:3);
+    const prompt=document.getElementById('map-pin-prompt');
+    if(prompt){prompt.classList.add('map-pin-active');}
+  } else {
+    if(xEl)xEl.value='';if(yEl)yEl.value='';
+    if(lbl)lbl.textContent='Tap to pin incident location on track map';
+    const prompt=document.getElementById('map-pin-prompt');
+    if(prompt)prompt.classList.remove('map-pin-active');
+  }
+  closeModal('m-map-pin');
+}
+function renderMapPins(svgId){
+  // Draw all active incident pins on a given SVG element
+  const svg=document.getElementById(svgId||'trk-svg');if(!svg)return;
+  svg.querySelectorAll('.inc-pin').forEach(p=>p.remove());
+  const now=Date.now();
+  const active=S.groups.filter(g=>g.mapPin&&g.status!=='Resolved'&&g.status!=='Closed');
+  active.forEach(g=>{
+    const c=TYPE_CLR[g.type]||'#f0b429';
+    const circle=document.createElementNS('http://www.w3.org/2000/svg','circle');
+    circle.setAttribute('cx',g.mapPin.x);circle.setAttribute('cy',g.mapPin.y);
+    circle.setAttribute('r','6');circle.setAttribute('fill',c);circle.setAttribute('opacity','0.85');
+    circle.setAttribute('class','inc-pin');
+    const t=document.createElementNS('http://www.w3.org/2000/svg','text');
+    t.setAttribute('x',g.mapPin.x);t.setAttribute('y',g.mapPin.y+4);
+    t.setAttribute('text-anchor','middle');t.setAttribute('fill','#fff');
+    t.setAttribute('font-size','6');t.setAttribute('class','inc-pin');
+    t.textContent=g.id.replace('INC-','');
+    svg.appendChild(circle);svg.appendChild(t);
+  });
+}
+
+// Extend submitLog to save map pin
+const _origSubmitLog=submitLog;
+function submitLog(){
+  const xEl=document.getElementById('map-pin-x');
+  const yEl=document.getElementById('map-pin-y');
+  _origSubmitLog();
+  // After log is submitted, patch in the map pin if set
+  if(xEl&&yEl&&xEl.value&&yEl.value&&S.groups.length>0){
+    S.groups[0].mapPin={x:parseInt(xEl.value),y:parseInt(yEl.value)};
+    save();xEl.value='';yEl.value='';
+    const lbl=document.getElementById('map-pin-label');if(lbl)lbl.textContent='Tap to pin incident location on track map';
+    const prompt=document.getElementById('map-pin-prompt');if(prompt)prompt.classList.remove('map-pin-active');
+    pendingMapPin=null;
+  }
+  // Show pin prompt if track is loaded
+  const prompt=document.getElementById('map-pin-prompt');
+  if(prompt&&S.session.trackId)prompt.classList.add('on');
+  // Re-render pins on map
+  renderMapPins('trk-svg');
+}
+
+// Show map pin prompt when track is selected
+function afterTrackLoad(){
+  const prompt=document.getElementById('map-pin-prompt');
+  if(prompt)prompt.classList.add('on');
+}
+
+// ══════════════════════════════════════════════
+// WEATHER — VISUAL ENHANCEMENTS
+// ══════════════════════════════════════════════
+const WX_VISUAL={
+  'Clear':{icon:'☀️',color:'#f0b429',bg:'rgba(240,180,41,.08)',label:'Clear — Ideal conditions'},
+  'Partly Cloudy':{icon:'⛅',color:'#94a3b8',bg:'rgba(148,163,184,.06)',label:'Partly Cloudy'},
+  'Overcast':{icon:'☁️',color:'#64748b',bg:'rgba(100,116,139,.06)',label:'Overcast'},
+  'Light Rain':{icon:'🌧',color:'#60a5fa',bg:'rgba(96,165,250,.08)',label:'Light Rain — Reduced grip'},
+  'Heavy Rain':{icon:'⛈',color:'#3b82f6',bg:'rgba(59,130,246,.1)',label:'Heavy Rain — Flag risk'},
+  'Lightning':{icon:'🌩',color:'#e24b4a',bg:'rgba(226,74,74,.1)',label:'Lightning — Red flag protocol'},
+  'Foggy':{icon:'🌫',color:'#94a3b8',bg:'rgba(148,163,184,.08)',label:'Fog — Reduced visibility'},
+  'Windy':{icon:'💨',color:'#06b6d4',bg:'rgba(6,182,212,.07)',label:'High Winds — Caution advised'},
+  'Snow':{icon:'❄️',color:'#bfdbfe',bg:'rgba(191,219,254,.08)',label:'Snow — Session hold possible'},
+};
+
+function updateWeatherVisuals(weather){
+  const wx=WX_VISUAL[weather]||WX_VISUAL['Clear'];
+  // Spectator weather banner
+  const ban=document.getElementById('spec-wx-banner');
+  const ico=document.getElementById('spec-wx-icon');
+  const lbl=document.getElementById('spec-wx-label');
+  if(ban){ban.style.background=wx.bg;ban.style.borderBottom='1px solid '+wx.color+'33';}
+  if(ico)ico.textContent=wx.icon;
+  if(lbl){lbl.textContent=wx.label;lbl.style.color=wx.color;}
+  const showBanner=weather&&weather!=='Clear';
+  if(ban)ban.classList.toggle('on',showBanner);
+  // RC wx strip (already exists — update icon)
+  const wxStrip=document.getElementById('wx-strip');
+  if(wxStrip){
+    const wxIco=wxStrip.querySelector('.wx-icon');
+    if(!wxIco){const ico2=document.createElement('span');ico2.className='wx-icon';ico2.textContent=wx.icon;wxStrip.insertBefore(ico2,wxStrip.firstChild);}
+    else wxIco.textContent=wx.icon;
+    wxStrip.style.borderColor=wx.color+'44';
+  }
+  const wxLbl=document.getElementById('wx-lbl');if(wxLbl)wxLbl.style.color=wx.color;
+  // Suggest flag change for dangerous weather
+  if((weather==='Lightning'||weather==='Heavy Rain')&&S.session.active&&S.race.flag!=='Red'&&currentRole==='rc'){
+    toast('⚠ '+weather+' — consider Red Flag protocol','warn');
+  }
+}
+
+// Wire into existing submitWeather
+const _origSubmitWeather=typeof submitWeather==='function'?submitWeather:null;
+function submitWeather(){
+  if(_origSubmitWeather)_origSubmitWeather();
+  setTimeout(()=>updateWeatherVisuals(S.race.weather||'Clear'),100);
+}
+
+// ══════════════════════════════════════════════
+// DRIVER PROFILES — CAREER STATS
+// ══════════════════════════════════════════════
+function openDriverProfile(driverId){
+  // Check if coming from existing function (if so, let it handle)
+  const d=S.drivers.find(x=>x.id===driverId);
+  if(!d)return;
+  document.getElementById('dp-title').textContent='#'+d.carNum+' '+d.name;
+  // Current session stats
+  const sessionInc=S.groups.filter(g=>g.drivers&&g.drivers.includes(driverId)).length;
+  const pendingPens=(d.penalties||[]).filter(p=>!p.served).length;
+  const stageWins=(d.stagePoints||[]).filter(s=>s.position===1).length;
+  // Career stats from past sessions
+  let careerRaces=0,careerPoints=0,careerWins=0,careerInc=0;
+  S.pastSessions.forEach(sess=>{
+    const past=sess.drivers?sess.drivers.find(x=>x.carNum===d.carNum):null;
+    if(past){careerRaces++;careerPoints+=(past.totalPoints||0);if(past.position===1)careerWins++;}
+  });
+  const statsEl=document.getElementById('dp-stats');
+  if(statsEl)statsEl.innerHTML=`
+<div class="profile-stat"><div class="profile-stat-n" style="color:#f0b429">${d.totalPoints||0}</div><div class="profile-stat-l">Total Pts</div></div>
+<div class="profile-stat"><div class="profile-stat-n">${sessionInc}</div><div class="profile-stat-l">Incidents</div></div>
+<div class="profile-stat"><div class="profile-stat-n" style="color:#e24b4a">${pendingPens}</div><div class="profile-stat-l">Penalties</div></div>
+<div class="profile-stat"><div class="profile-stat-n" style="color:#22c55e">${stageWins}</div><div class="profile-stat-l">Stage Wins</div></div>
+<div class="profile-stat"><div class="profile-stat-n">${careerRaces}</div><div class="profile-stat-l">Career Races</div></div>
+<div class="profile-stat"><div class="profile-stat-n" style="color:#f0b429">${careerPoints}</div><div class="profile-stat-l">Career Pts</div></div>
+<div class="profile-stat"><div class="profile-stat-n" style="color:#f0b429">${careerWins}</div><div class="profile-stat-l">Career Wins</div></div>
+<div class="profile-stat"><div class="profile-stat-n">${d.incidents||0}</div><div class="profile-stat-l">This Race</div></div>`;
+  // Race history
+  const histEl=document.getElementById('dp-race-history');
+  if(histEl){
+    const hist=S.pastSessions.filter(s=>s.drivers&&s.drivers.some(x=>x.carNum===d.carNum));
+    histEl.innerHTML=hist.length?hist.slice(0,8).map(s=>{const dr=s.drivers.find(x=>x.carNum===d.carNum);return`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--bd);font-size:9px"><span style="color:var(--dm);min-width:80px">${s.date.slice(0,10)}</span><span style="flex:1">${E(s.trackName||s.name)}</span><span style="font-weight:800;color:#f0b429">${dr?dr.totalPoints||0:0}pts</span></div>`}).join(''):'<div style="font-size:9px;color:var(--dm)">No race history yet.</div>';
+  }
+  // Penalty record
+  const penEl=document.getElementById('dp-penalties');
+  if(penEl){
+    const pens=d.penalties||[];
+    penEl.innerHTML=pens.length?pens.map(p=>`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--bd);font-size:9px"><span class="lcs ${p.served?'lcs-res':'lcs-act'}" style="font-size:7px;flex-shrink:0">${p.served?'SERVED':'PENDING'}</span><span style="flex:1">${E(p.type||'Penalty')}</span><span style="font-size:7px;color:var(--dm)">Lap ${p.lap||'?'}</span></div>`).join(''):'<div style="font-size:9px;color:var(--dm)">No penalties on record.</div>';
+  }
+  openModal('m-driver-profile');
+}
+
+// ══════════════════════════════════════════════
+// AUTOMATED RACE REPORT
+// ══════════════════════════════════════════════
+function generateRaceReport(){
+  const drivers=[...S.drivers].sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
+  const incidents=S.groups.filter(g=>!g.isFlagLog).slice(0,30);
+  const stages=S.race.completedStages||[];
+  const decisions=S.stewardDecisions||[];
+  const notes=S.scorerNotes||[];
+  const wx=S.race.weather||'Clear';
+  const wxV=WX_VISUAL[wx]||WX_VISUAL['Clear'];
+  const html=`<!DOCTYPE html><html><head><meta charset="utf-8"><title>Race Report — ${E(S.session.trackName||'Race')}</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#fff;color:#111;padding:32px;max-width:800px;margin:0 auto}
+h1{font-size:24px;font-weight:900;border-bottom:3px solid #111;padding-bottom:8px;margin-bottom:4px}
+.meta{font-size:11px;color:#666;margin-bottom:24px}
+h2{font-size:14px;font-weight:800;border-bottom:1px solid #ccc;padding:6px 0;margin:20px 0 10px;text-transform:uppercase;letter-spacing:.06em}
+table{width:100%;border-collapse:collapse;font-size:11px;margin-bottom:12px}
+th{background:#f0f0f0;padding:6px 8px;text-align:left;font-weight:700;border-bottom:2px solid #ccc}
+td{padding:5px 8px;border-bottom:1px solid #eee}
+tr:nth-child(even)td{background:#fafafa}
+.pos1{color:#d4a800;font-weight:900}.pos2{color:#888}.pos3{color:#8b5000}
+.badge{display:inline-block;padding:2px 6px;border-radius:3px;font-size:9px;font-weight:800}
+.badge-sev-Critical{background:#fee;color:#c00}.badge-sev-High{background:#ffe;color:#b00}
+.badge-sev-Medium{background:#fffbe6;color:#a50}.badge-sev-Low{background:#f0f0f0;color:#666}
+.incident-row{padding:8px 0;border-bottom:1px solid #eee;font-size:11px}
+.steward-card{background:#fffbeb;border:1px solid #d4a800;border-radius:4px;padding:10px;margin-bottom:8px}
+footer{margin-top:32px;font-size:9px;color:#aaa;text-align:center;border-top:1px solid #eee;padding-top:12px}
+</style></head><body>
+<h1>🏁 Official Race Report</h1>
+<div class="meta">${E(S.session.trackName||'Unknown Track')} · ${new Date().toLocaleString()} · Weather: ${wxV.icon} ${wx} · Total Laps: ${S.race.lap||0} · Lobby: ${currentLobbyCode||'—'}</div>
+
+<h2>Points Standings</h2>
+<table><tr><th>Pos</th><th>Car #</th><th>Driver</th><th>Points</th><th>Incidents</th><th>Penalties</th><th>Status</th></tr>
+${drivers.map((d,i)=>`<tr><td class="${i===0?'pos1':i===1?'pos2':i===2?'pos3':''}">${i+1}</td><td>#${E(d.carNum)}</td><td>${E(d.name)}</td><td><b>${d.totalPoints||0}</b></td><td>${d.incidents||0}</td><td>${(d.penalties||[]).length}</td><td>${d.status||'Active'}</td></tr>`).join('')}
+</table>
+
+${stages.length?`<h2>Stage Results</h2>${stages.map(s=>`<p style="margin-bottom:6px"><b>${E(s.stage)}</b> (Lap ${s.lapEnd}): `+(s.results||[]).slice(0,3).map(r=>`P${r.position} #${E(r.carNum)} ${E(r.name)} +${r.points}pts`).join(' · ')+'</p>').join('')}`:''}
+
+<h2>Incident Log (${incidents.length} incidents)</h2>
+${incidents.length?incidents.map(g=>`<div class="incident-row"><b>${g.id} — ${E(g.type)}</b> <span class="badge badge-sev-${g.severity}">${g.severity}</span><br><span style="color:#666">Lap ${g.lap||'?'} · ${E(g.location||'Unknown')} · ${(g.driversText||[]).join(', ')||'—'} · ${g.status}</span></div>`).join(''):'<p style="color:#888">No incidents recorded.</p>'}
+
+${decisions.length?`<h2>Steward Decisions</h2>${decisions.map(d=>`<div class="steward-card"><b>⚖️ ${E(d.subject)}</b>${d.penalty?` — <b style="color:#c00">${E(d.penalty)}</b>`:''}<br>${E(d.body)}<br><span style="font-size:9px;color:#888">Lap ${d.lap||'?'} · ${E(d.time)}</span></div>`).join('')}`:''}
+
+${notes.length?`<h2>Official Notes</h2>${notes.map(n=>`<p style="margin-bottom:4px;font-size:11px">L${n.lap||'?'} · ${E(n.time)}: ${E(n.text)}</p>`).join('')}`:''}
+
+<footer>NASCAR Panel Automated Race Report · ${E(S.session.trackName||'Session')} · Generated ${new Date().toLocaleString()}${currentAccount&&currentAccount.name!=='Guest'?' · Operator: '+currentAccount.name:''}</footer>
+</body></html>`;
+  const w=window.open('','_blank');
+  if(w){w.document.write(html);w.document.close();setTimeout(()=>w.print(),600);}
+  toast('Race report generated — use browser Print to save as PDF','ok');
+}
+
+// ══════════════════════════════════════════════
+// FLAG CONFIRMATION
+// ══════════════════════════════════════════════
+let pendingFlag=null;
+
+function setFlagWithConfirm(flag){
+  // Called from flag buttons instead of setFlag directly
+  const cfg=FLAG_CFG[flag]||FLAG_CFG.Green;
+  pendingFlag=flag;
+  const bar=document.getElementById('flag-confirm-bar');
+  const txt=document.getElementById('flag-confirm-txt');
+  const btn=document.getElementById('flag-confirm-yes');
+  if(!bar)return setFlag(flag);
+  bar.style.setProperty('--fc',cfg.color);
+  if(txt)txt.textContent='Confirm: Set '+flag+' Flag?';
+  if(btn)btn.style.background=cfg.color;
+  bar.classList.add('on');
+}
+function confirmFlagChange(){
+  if(pendingFlag){setFlag(pendingFlag);pendingFlag=null;}
+  document.getElementById('flag-confirm-bar').classList.remove('on');
+}
+function cancelFlagChange(){
+  pendingFlag=null;
+  document.getElementById('flag-confirm-bar').classList.remove('on');
+}
+
+// ══════════════════════════════════════════════
+// SCRIPT PROMPTS (announcer + radio)
+// ══════════════════════════════════════════════
+const ANNOUNCER_SCRIPTS={
+  Green:'Ladies and gentlemen, the green flag is out — we are racing! Drivers take your marks as the field accelerates out of Turn 4.',
+  Yellow:'Caution is out, caution is out on the track. All drivers reduce speed and hold your positions. Safety vehicles are being deployed.',
+  Red:'The red flag has been displayed. All drivers must come to a controlled stop at their designated positions. The race is suspended.',
+  'Pace Lap':'We are under pace lap conditions. Drivers, maintain your position behind the pace car and await further instruction from Race Control.',
+  Restart:'The field is lined up for the restart. Single-file restart, green flag on the following lap. Drivers, be ready.',
+  Checkered:'The checkered flag is out — we have a race winner! What a race it has been here today.',
+  'Red Checkered':'The race has been officially halted. This result will stand pending steward review.',
+  'Stage Break':'Stage complete — we are under a stage break. Drivers hold position. Points will be awarded momentarily.',
+  'Stage Caution':'Stage caution is displayed. The race is neutralised at the stage boundary. Pit road is now open.',
+};
+const RADIO_SCRIPTS={
+  Green:'All units, green flag is out. Track is clear. All units return to standby positions.',
+  Yellow:'All units, caution flag. Ambulance and wrecker stand by. Marshal posts hold positions. RC monitoring.',
+  Red:'All units, red flag — this is a red flag. AMR to staging. Fire response on standby. All units acknowledge.',
+  'Pace Lap':'All units, pace lap in progress. Marshal posts maintain visual. No track access until further notice.',
+  Restart:'All units, restart preparation. Clear all vehicles from the racing surface. Confirm track is clear — all posts acknowledge.',
+  Checkered:'All units, checkered flag is out. Race is concluded. Secure marshal posts. AMR stand down to standby.',
+  'Red Checkered':'All units, race halted. All units hold positions. Await RC instruction before any movement.',
+  'Stage Break':'All units, stage break in progress. Maintain positions. Pit road access at Race Control discretion.',
+  'Stage Caution':'All units, stage caution. Monitor for any incident. Maintain post visibility.',
+};
+
+let scriptTimeout=null;
+function showScriptPrompt(flag){
+  if(currentRole!=='rc'&&currentSubRole!=='comms-director')return;
+  const cfg=FLAG_CFG[flag]||FLAG_CFG.Green;
+  const ann=ANNOUNCER_SCRIPTS[flag]||'';
+  const radio=RADIO_SCRIPTS[flag]||'';
+  const overlay=document.getElementById('script-overlay');if(!overlay)return;
+  overlay.innerHTML='';
+  if(ann){
+    const card=document.createElement('div');card.className='script-card';
+    card.style.setProperty('--c',cfg.color);
+    card.innerHTML=`<div class="script-type">📢 Announcer Script <button class="script-close" onclick="this.closest('.script-card').remove()">Dismiss</button></div><div class="script-text">"${E(ann)}"</div>`;
+    overlay.appendChild(card);
+  }
+  if(radio){
+    const card2=document.createElement('div');card2.className='script-card';
+    card2.style.setProperty('--c','#06b6d4');
+    card2.innerHTML=`<div class="script-type">📻 Driver Radio Script <button class="script-close" onclick="this.closest('.script-card').remove()">Dismiss</button></div><div class="script-text">"${E(radio)}"</div>`;
+    overlay.appendChild(card2);
+  }
+  if(scriptTimeout)clearTimeout(scriptTimeout);
+  scriptTimeout=setTimeout(()=>{if(overlay)overlay.innerHTML='';},15000);
+}
+
+// ══════════════════════════════════════════════
+// LOWER THIRDS
+// ══════════════════════════════════════════════
+let ltTimeout=null;
+function showLowerThird(icon,label,text,color,duration){
+  duration=duration||5000;
+  const bar=document.getElementById('lt-bar');if(!bar)return;
+  bar.style.setProperty('--lt-c',color||'#f0b429');
+  const ic=document.getElementById('lt-icon');const lb=document.getElementById('lt-label');
+  const tx=document.getElementById('lt-text');const lp=document.getElementById('lt-lap');
+  if(ic)ic.textContent=icon||'';if(lb)lb.textContent=label||'';
+  if(tx)tx.textContent=text||'';if(lp)lp.textContent=S.session&&S.session.active?'Lap '+(S.race?S.race.lap:0):'';
+  bar.classList.add('on');
+  if(ltTimeout)clearTimeout(ltTimeout);
+  ltTimeout=setTimeout(()=>bar.classList.remove('on'),duration);
+}
+
+// ══════════════════════════════════════════════
+// TV DISPLAY MODE
+// ══════════════════════════════════════════════
+let tvRefreshTmr=null;
+function openTVMode(){
+  document.getElementById('tv-screen').classList.add('on');
+  renderTVMode();
+  if(!tvRefreshTmr)tvRefreshTmr=setInterval(renderTVMode,3000);
+}
+function closeTVMode(){
+  document.getElementById('tv-screen').classList.remove('on');
+  if(tvRefreshTmr){clearInterval(tvRefreshTmr);tvRefreshTmr=null;}
+}
+function renderTVMode(){
+  const flag=S.race?S.race.flag:'Green';
+  const cfg=FLAG_CFG[flag]||FLAG_CFG.Green;
+  const hero=document.getElementById('tv-flag-hero');
+  if(hero)hero.style.background=cfg.color+'06';
+  const fi=document.getElementById('tv-flag-icon');if(fi)fi.textContent=cfg.icon;
+  const fn=document.getElementById('tv-flag-name');if(fn){fn.textContent=flag.toUpperCase()+' FLAG';fn.style.color=cfg.color;}
+  const fl=document.getElementById('tv-lap');if(fl)fl.textContent=S.session&&S.session.active?'Lap '+(S.race?S.race.lap:0):'Pre-Race';
+  const ft=document.getElementById('tv-track');if(ft)ft.textContent=E(S.session&&S.session.trackName||'');
+  // Standings
+  const standEl=document.getElementById('tv-standings');
+  if(standEl){
+    const ranked=[...S.drivers].filter(d=>d.totalPoints>0).sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
+    standEl.innerHTML=ranked.slice(0,6).map((d,i)=>{
+      const pc=i===0?'p1':i===1?'p2':i===2?'p3':'';
+      return`<div class="tv-stand-row"><span class="tv-stand-pos ${pc}">${i+1}</span><span class="tv-stand-name">#${E(d.carNum)} ${E(d.name)}</span><span class="tv-stand-pts">${d.totalPoints||0}<span style="font-size:12px;color:#333"> pts</span></span></div>`;
+    }).join('')||'<div style="color:#222;font-size:14px;padding:12px 0">No standings yet</div>';
+  }
+  // Incidents
+  const incEl=document.getElementById('tv-incidents');
+  if(incEl){
+    const now=Date.now();
+    const vis=S.groups.filter(g=>!g.isFlagLog&&g.severity!=='Critical'&&(now-g.createdAt)>=60000).slice(0,5);
+    incEl.innerHTML=vis.map(g=>{const c=TYPE_CLR[g.type]||'#444';return`<div class="tv-inc-row"><span style="font-weight:800;color:${c}">${E(g.type)}</span> · Lap ${g.lap||'?'} · ${E(g.location||'—')}</div>`;}).join('')||'<div style="color:#222;font-size:14px;padding:12px 0">No incidents</div>';
+  }
+}
+
+// ══════════════════════════════════════════════
+// SCOREBOARD WALL
+// ══════════════════════════════════════════════
+let sbRefreshTmr=null;
+function openScoreboard(){
+  document.getElementById('sb-screen').classList.add('on');
+  renderScoreboard();
+  if(!sbRefreshTmr)sbRefreshTmr=setInterval(renderScoreboard,5000);
+}
+function closeScoreboard(){
+  document.getElementById('sb-screen').classList.remove('on');
+  if(sbRefreshTmr){clearInterval(sbRefreshTmr);sbRefreshTmr=null;}
+}
+function renderScoreboard(){
+  const flag=S.race?S.race.flag:'Green';
+  const cfg=FLAG_CFG[flag]||FLAG_CFG.Green;
+  const chip=document.getElementById('sb-flag-chip');
+  if(chip){chip.style.color=cfg.color;chip.style.borderColor=cfg.color;chip.textContent=cfg.icon+' '+flag.toUpperCase()+' FLAG';}
+  const lapEl=document.getElementById('sb-lap');if(lapEl)lapEl.textContent=S.session&&S.session.active?'Lap '+(S.race?S.race.lap:0):'';
+  const title=document.getElementById('sb-title');if(title)title.textContent=E(S.session&&S.session.trackName||'Live Standings');
+  const body=document.getElementById('sb-body');if(!body)return;
+  const ranked=[...S.drivers].sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
+  body.innerHTML=ranked.map((d,i)=>{
+    const pc=i===0?'p1':i===1?'p2':i===2?'p3':'';
+    return`<div class="sb-row"><span class="sb-pos ${pc}">${i+1}</span><span class="sb-car">#${E(d.carNum)}</span><span class="sb-name">${E(d.name)}</span><div style="text-align:right"><div class="sb-pts">${d.totalPoints||0}</div><div class="sb-pts-lbl">PTS</div></div></div>`;
+  }).join('')||'<div style="color:#222;font-size:18px;padding:24px 0;text-align:center">No standings yet</div>';
+}
+
+// ══════════════════════════════════════════════
+// SPECTATOR CHAT
+// ══════════════════════════════════════════════
+function switchSpecTab(tab){
+  const incP=document.getElementById('spec-inc-panel');
+  const chatP=document.getElementById('spec-chat-panel');
+  const incBtn=document.getElementById('spec-tab-inc');
+  const chatBtn=document.getElementById('spec-tab-chat');
+  if(incP)incP.style.display=tab==='inc'?'':'none';
+  if(chatP)chatP.style.display=tab==='chat'?'':'none';
+  if(incBtn)incBtn.style.color=tab==='inc'?'#fff':'#888';
+  if(chatBtn)chatBtn.style.color=tab==='chat'?'#fff':'#888';
+  if(tab==='chat')renderSpecChat();
+}
+function switchSpecSide(side){
+  const standP=document.getElementById('spec-stand-panel');
+  const fansP=document.getElementById('spec-fans-panel');
+  const standBtn=document.getElementById('spec-tab-stand');
+  const fansBtn=document.getElementById('spec-tab-fans');
+  if(standP)standP.style.display=side==='stand'?'':'none';
+  if(fansP)fansP.style.display=side==='fans'?'':'none';
+  if(standBtn)standBtn.style.color=side==='stand'?'#fff':'#888';
+  if(fansBtn)fansBtn.style.color=side==='fans'?'#fff':'#888';
+  if(side==='fans')renderFanVotes();
+}
+
+function sendSpecChat(){
+  const inp=document.getElementById('spec-chat-input');
+  if(!inp||!inp.value.trim())return;
+  const name=currentAccount?currentAccount.name:'Spectator';
+  if(!S.spectatorChat)S.spectatorChat=[];
+  S.spectatorChat.push({id:uid(),name,text:inp.value.trim(),ts:Date.now(),deleted:false});
+  if(S.spectatorChat.length>100)S.spectatorChat.splice(0,S.spectatorChat.length-100);
+  inp.value='';save();renderSpecChat();
+}
+function renderSpecChat(){
+  const el=document.getElementById('spec-chat-feed');if(!el)return;
+  const msgs=(S.spectatorChat||[]).filter(m=>!m.deleted).slice(-30);
+  if(!msgs.length){el.innerHTML='<div style="color:#333;font-size:10px;padding:8px 0;text-align:center">No messages yet.</div>';return;}
+  const isRC=currentRole==='rc';
+  el.innerHTML=msgs.map(m=>`<div class="chat-msg"><span class="chat-msg-name">${E(m.name)}</span>${isRC?` <button onclick="deleteChatMsg('${m.id}')" style="font-size:7px;background:transparent;border:none;color:#333;cursor:pointer;padding:0 3px">✕</button>`:''}<br><span class="chat-msg-text">${E(m.text)}</span></div>`).join('');
+  el.scrollTop=el.scrollHeight;
+}
+function deleteChatMsg(id){
+  const msg=(S.spectatorChat||[]).find(m=>m.id===id);if(msg)msg.deleted=true;save();renderSpecChat();toast('Message removed','ok');
+}
+
+// ══════════════════════════════════════════════
+// FAN VOTES
+// ══════════════════════════════════════════════
+function renderFanVotes(){
+  const el=document.getElementById('spec-fan-votes');
+  const action=document.getElementById('spec-vote-action');
+  if(!el)return;
+  const votes=S.fanVotes||{};
+  const totals={};
+  Object.values(votes).forEach(v=>{totals[v]=(totals[v]||0)+1;});
+  const total=Object.values(totals).reduce((s,n)=>s+n,0);
+  const myVote=votes[deviceId||'anon'];
+  if(!S.drivers.length){el.innerHTML='<div style="color:#333;font-size:10px;padding:8px 0;text-align:center">No drivers yet.</div>';return;}
+  const sorted=[...S.drivers].sort((a,b)=>(totals[a.id]||0)-(totals[b.id]||0)).reverse();
+  el.innerHTML=sorted.map(d=>{
+    const cnt=totals[d.id]||0;
+    const pct=total>0?Math.round(cnt/total*100):0;
+    const isMe=myVote===d.id;
+    return`<div class="fan-vote-row">
+<div class="fan-vote-name"><span style="${isMe?'color:#6366f1;font-weight:800':''}">#${E(d.carNum)} ${E(d.name)}${isMe?' ✓':''}</span><span style="color:#444">${pct}% (${cnt})</span></div>
+<div class="fan-vote-bar"><div class="fan-vote-fill" style="width:${pct}%;background:${isMe?'#6366f1':'#333'}"></div></div>
+</div>`;
+  }).join('');
+  // Vote action
+  if(action){
+    if(myVote){action.innerHTML='<div style="font-size:9px;color:#444;text-align:center">You voted for #'+E((S.drivers.find(d=>d.id===myVote)||{}).carNum||'—')+'</div>';}
+    else if(currentRole==='spectator'||currentRole==='racer'){
+      action.innerHTML='<div style="font-size:9px;color:#555;margin-bottom:6px;text-align:center">Vote for your favourite driver:</div>'+
+        S.drivers.map(d=>`<div class="pred-opt" onclick="castFanVote('${d.id}')" style="background:#0d0d0d;border-color:#1a1a1a"><span style="font-size:10px">#${E(d.carNum)}</span><span style="flex:1;font-size:9px;color:#888">${E(d.name)}</span></div>`).join('');
+    } else {action.innerHTML='';}
+  }
+}
+function castFanVote(driverId){
+  if(!S.fanVotes)S.fanVotes={};
+  const voter=deviceId||'anon';
+  if(S.fanVotes[voter]){toast('Already voted','warn');return;}
+  S.fanVotes[voter]=driverId;
+  save();renderFanVotes();toast('Vote cast!','ok');
+}
+
+// ══════════════════════════════════════════════
+// PREDICTION GAME
+// ══════════════════════════════════════════════
+let myPredictions=null;
+
+function openPredictions(){
+  const stored=S.predictionResults?.[deviceId||'anon'];
+  if(stored){showPredictionResults(stored);return;}
+  if(myPredictions){toast('Predictions locked in!','ok');closeModal('m-predictions');return;}
+  const el=document.getElementById('pred-content');
+  const btns=document.getElementById('pred-btns');
+  if(!el)return;
+  if(!S.drivers.length){el.innerHTML='<div class="empty" style="padding:20px">No drivers set up yet — wait for the host to add drivers.</div>';openModal('m-predictions');return;}
+  const driverOpts=S.drivers.map(d=>`<div class="pred-opt" data-id="${d.id}" onclick="selectPredOpt(this,'${d.id}')"><span style="font-weight:700">#${E(d.carNum)}</span><span style="flex:1;color:var(--mu);font-size:9px">${E(d.name)}</span></div>`).join('');
+  el.innerHTML=`
+<div class="pred-card"><div class="pred-hdr">🏆 Who will win?</div><div id="pred-winner">${driverOpts}</div></div>
+<div class="pred-card"><div class="pred-hdr">⚡ Fastest Lap?</div><div id="pred-fast">${driverOpts}</div></div>
+<div class="pred-card"><div class="pred-hdr">⚠ Most Incidents?</div><div id="pred-inc">${driverOpts}</div></div>`;
+  if(btns)btns.style.display='';
+  openModal('m-predictions');
+}
+function selectPredOpt(el,id){
+  const parent=el.parentNode;
+  parent.querySelectorAll('.pred-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+function submitPredictions(){
+  const winner=document.querySelector('#pred-winner .pred-opt.selected');
+  const fast=document.querySelector('#pred-fast .pred-opt.selected');
+  const inc=document.querySelector('#pred-inc .pred-opt.selected');
+  if(!winner||!fast||!inc){toast('Pick all three predictions','err');return;}
+  myPredictions={winner:winner.dataset.id,fastestLap:fast.dataset.id,mostIncidents:inc.dataset.id,ts:Date.now(),voter:deviceId||'anon',name:currentAccount?currentAccount.name:'Spectator'};
+  if(!S.predictions)S.predictions=[];
+  S.predictions=S.predictions.filter(p=>p.voter!==(deviceId||'anon'));
+  S.predictions.push(myPredictions);
+  save();closeModal('m-predictions');toast('Predictions locked in!','ok');
+}
+function showPredictionResults(results){
+  const el=document.getElementById('pred-results-content');if(!el)return;
+  el.innerHTML='<div style="font-size:10px;color:var(--mu);text-align:center;padding:16px">Results will be shown after the session ends.</div>';
+  openModal('m-pred-results');
+}
+function scorePredictions(){
+  // Called by RC after session end
+  if(!S.predictions||!S.session)return;
+  const winners=[...S.drivers].sort((a,b)=>(b.totalPoints||0)-(a.totalPoints||0));
+  const actualWinner=winners[0];
+  const lapTimes=S.race.lapTimes||[];
+  const fastMap={};lapTimes.forEach(t=>{const d=S.drivers.find(x=>x.carNum===t.carNum);if(d){const cur=fastMap[d.id];if(!cur||t.time<cur)fastMap[d.id]=t.time;}});
+  const fastDriver=Object.entries(fastMap).sort((a,b)=>a[1].localeCompare(b[1]))[0]?.[0];
+  const incMap={};S.groups.forEach(g=>(g.drivers||[]).forEach(id=>{incMap[id]=(incMap[id]||0)+1;}));
+  const mostInc=Object.entries(incMap).sort((a,b)=>b[1]-a[1])[0]?.[0];
+  if(!S.predictionResults)S.predictionResults={};
+  let scoreTable='<div style="font-size:11px;font-weight:700;margin-bottom:10px">Prediction Results</div>';
+  S.predictions.forEach(p=>{
+    let pts=0;
+    const winOk=actualWinner&&p.winner===actualWinner.id;
+    const fastOk=fastDriver&&p.fastestLap===fastDriver;
+    const incOk=mostInc&&p.mostIncidents===mostInc;
+    if(winOk)pts+=3;if(fastOk)pts+=2;if(incOk)pts+=1;
+    S.predictionResults[p.voter]={...p,score:pts,winOk,fastOk,incOk};
+    scoreTable+=`<div style="display:flex;align-items:center;gap:6px;padding:5px 0;border-bottom:1px solid var(--bd);font-size:10px"><span style="flex:1">${E(p.name)}</span><span style="${winOk?'color:#22c55e':'color:#e24b4a'}">${winOk?'✓':'✗'} Win</span><span style="${fastOk?'color:#22c55e':'color:#e24b4a'}">${fastOk?'✓':'✗'} Fast</span><span style="${incOk?'color:#22c55e':'color:#e24b4a'}">${incOk?'✓':'✗'} Inc</span><span style="font-weight:800;color:#f0b429">${pts}pts</span></div>`;
+  });
+  save();
+  const el=document.getElementById('pred-results-content');if(el)el.innerHTML=scoreTable;
+  openModal('m-pred-results');toast('Predictions scored','ok');
+}
+
 function migrateStateExtra(){
   if(!S.polls)S.polls=[];
   if(!S.stewardDecisions)S.stewardDecisions=[];
@@ -5934,6 +7895,11 @@ function migrateStateExtra(){
   if(!S.schedule)S.schedule=[];
   if(!S.commentary)S.commentary=[];
   if(S.rulebook===undefined)S.rulebook='';
+  if(!S.spectatorChat)S.spectatorChat=[];
+  if(!S.fanVotes)S.fanVotes={};
+  if(!S.predictions)S.predictions=[];
+  if(!S.predictionResults)S.predictionResults={};
+  if(!S.punishmentLog)S.punishmentLog=[];
 }
 
 function saveCfg(){
@@ -6081,6 +8047,8 @@ document.querySelectorAll('.role-card[onclick]').forEach(card=>{
   },{passive:false});
 });
 initDevice();
+// Account system — shown before lobby
+initAccountSystem();
 load();
 function migrateIds(){[...S.groups,...S.pastSessions.flatMap(s=>s.groups||[])].forEach(g=>{(g.events||[]).forEach(e=>{if(!e.id)e.id=uid();});});}
 migrateIds();
@@ -6106,8 +8074,28 @@ showPage('live');
 try{if(localStorage.getItem('nascar_lightmode')==='1'){lightMode=true;document.body.classList.add('light-mode');const btn=document.getElementById('mode-btn');if(btn)btn.textContent='🌙';}}catch(e){}
 // Restore countdown if still active
 if(S.race.countdownEnd&&S.race.countdownEnd>Date.now())countdownEnd=S.race.countdownEnd;
-// Start Firebase sync
-initFirebase();
+// ── LOBBY INIT ──
+// Check if we already have a lobby from this session (page refresh)
+(function(){
+  let savedCode=null;let savedName=null;
+  try{savedCode=sessionStorage.getItem('nascar_lobby_code');savedName=sessionStorage.getItem('nascar_lobby_name');}catch(e){}
+  if(savedCode){
+    // Rejoin previous lobby automatically
+    FIREBASE_ROOT='nascar_amr_v6_'+savedCode;
+    currentLobbyCode=savedCode;
+    document.getElementById('lobby-screen').classList.add('hidden');
+  } else {
+    // Show lobby screen — hide login screen until lobby is selected
+    document.getElementById('login-screen').style.display='none';
+  }
+  // Start Firebase sync with correct root
+  initFirebase();
+  // Lobby list refresh (in case Firebase is already connected)
+  setTimeout(renderLobbyList,1000);
+  setInterval(renderLobbyList,15000);
+  // Ping lobby activity every 30s
+  setInterval(updateLobbyActivity,30000);
+})();
 // Login page display
 renderLoginRaceInfo();
 renderLoginStatus();
