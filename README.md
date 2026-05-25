@@ -5,6 +5,8 @@ https://high-voltage-studios.github.io/nascar2026/
 
 **New Features**
 
+Lobby system - Added a way to join lobbys with others not everyone at once. 
+
 Hub — All Roles — Every role now has a Hub button in their topbar. Opens as a full-screen overlay above any role's screen. Tabs: Schedule, Rulebook, Commentary, Team Radio, Polls, and Rulings. All roles can send Team Radio messages from the Hub.
 
 Driver Polls — Race Control can post live polls from the Polls tab. All roles vote from their Hub with real-time vote bars. RC can restrict votes to racers only, and can close a poll at any time. Result announced in the radio feed on close.
