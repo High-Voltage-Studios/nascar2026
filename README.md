@@ -2,6 +2,7 @@
 **NASCAR Panel — v1.4**
 
 https://high-voltage-studios.github.io/nascar2026/
+
 **New Features**
 
 Hub — All Roles — Every role now has a Hub button in their topbar. Opens as a full-screen overlay above any role's screen. Tabs: Schedule, Rulebook, Commentary, Team Radio, Polls, and Rulings. All roles can send Team Radio messages from the Hub.
